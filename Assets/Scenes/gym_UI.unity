@@ -583,6 +583,8 @@ MonoBehaviour:
   timeElapsed: 0
   NumberOfStolenArtefacts: 0
   amountStolen: {fileID: 530104773}
+  valueStolen: {fileID: 1777869567}
+  timer: {fileID: 1225946781}
 --- !u!4 &41364653
 Transform:
   m_ObjectHideFlags: 0
@@ -4517,7 +4519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0000038063517, y: 15.5}
+  m_AnchoredPosition: {x: -0.0000038063517, y: 18.4}
   m_SizeDelta: {x: 349.56, y: 61.14}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &622211355
@@ -7619,7 +7621,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 0m 0s
 --- !u!222 &1225946782
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11933,7 +11935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -62.600006, y: 17.100018}
+  m_AnchoredPosition: {x: -62.600006, y: 17.1}
   m_SizeDelta: {x: 349.56, y: 61.14}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1777869567
@@ -11968,7 +11970,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: "0\u20AC"
 --- !u!222 &1777869568
 CanvasRenderer:
   m_ObjectHideFlags: 0
