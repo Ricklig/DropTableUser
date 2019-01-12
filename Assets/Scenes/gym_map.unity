@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -582,9 +582,9 @@ MonoBehaviour:
   stolen: 0
   timeElapsed: 0
   NumberOfStolenArtefacts: 0
-  amountStolen: {fileID: 0}
-  valueStolen: {fileID: 0}
-  timer: {fileID: 0}
+  amountStolen: {fileID: 1437115622}
+  valueStolen: {fileID: 1066644863}
+  timer: {fileID: 313912046}
 --- !u!4 &41364653
 Transform:
   m_ObjectHideFlags: 0
@@ -2670,7 +2670,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 313912044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000026711223}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000041737258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 172189499}
@@ -2678,8 +2678,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -574.13, y: 383.9}
-  m_SizeDelta: {x: 259.3, y: 22.69}
+  m_AnchoredPosition: {x: -625.17, y: 389.61008}
+  m_SizeDelta: {x: 208.26, y: 30.98}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &313912046
 MonoBehaviour:
@@ -2702,7 +2702,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -6353,7 +6353,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 924588479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000026711223}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000041737258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 172189499}
@@ -6361,7 +6361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 19.790009, y: 383.50018}
+  m_AnchoredPosition: {x: 19.790009, y: 389.2102}
   m_SizeDelta: {x: 244.48, y: 63.39}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &924588481
@@ -6385,7 +6385,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -7351,7 +7351,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1066644861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000026711223}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000041737258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 172189499}
@@ -7359,8 +7359,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -574.13, y: 405.6}
-  m_SizeDelta: {x: 259.3, y: 20.84}
+  m_AnchoredPosition: {x: -625.17, y: 411.3101}
+  m_SizeDelta: {x: 208.26, y: 23.89}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1066644863
 MonoBehaviour:
@@ -7383,7 +7383,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9587,8 +9587,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -574.13, y: 425.99}
-  m_SizeDelta: {x: 259.3, y: 20.9}
+  m_AnchoredPosition: {x: -625.17, y: 431.7}
+  m_SizeDelta: {x: 208.26, y: 18.72}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1437115622
 MonoBehaviour:
@@ -9611,7 +9611,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
