@@ -8,7 +8,6 @@ using System;
 public class GameManager : Singleton<GameManager> {
     public AlertManager AlertManager = new AlertManager();
 
-
     public MusicController mc;
     public bool isPlaying = false;
 
