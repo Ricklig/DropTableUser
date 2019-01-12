@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GuardPlayerInSightState : GuardSensState {
     private bool isChasing = false;
+    private bool suprisedClipPlayed = false;
     float timer = 0;
     public GuardPlayerInSightState(GuardAI guardAI) : base(guardAI)
     {
@@ -11,11 +12,18 @@ public class GuardPlayerInSightState : GuardSensState {
 
     public override GuardState DoAction()
     {
+        Debug.Log("GuardPlayerInSightState");
         GuardState state = base.DoAction();
         if (state.GetType() == typeof(GuardPlayerInSightState))
         {
             if (!isChasing)
             {
+                if (!suprisedClipPlayed)
+                {
+                    guardAI.audioSource.PlayOneShot(guardAI.audioSource.clip);
+                    suprisedClipPlayed = true;
+                }
+
                 //put exclamation mark
                 if (timer >= guardAI.SupriseDuration)
                 {

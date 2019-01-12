@@ -16,6 +16,7 @@ public class GuardPedestalCheckState : GuardSensState {
     // Update is called once per frame
     public override GuardState DoAction()
     {
+        Debug.Log("GuardPedestalCheckState");
         base.DoAction();
         Debug.Log("Entering Pedestal State");
         if (pedestalCheckState == PedestalCheckState.TurningTowardArtefact)

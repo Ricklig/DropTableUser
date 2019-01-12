@@ -9,7 +9,6 @@ public class MusicController : MonoBehaviour
     public AudioSource level2;
     public AudioSource level3;
     public AudioSource level4;
-
     private int currentLevel = 1;
 
     public void levelUp()
