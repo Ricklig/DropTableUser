@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class EndMenu : MonoBehaviour
 {
     public GUISkin _GuiSkin;
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     // Should put the proper type but I'm brain-dead
     public GameObject timeText;
@@ -20,17 +21,25 @@ public class EndMenu : MonoBehaviour
     // Everything that happens every time the menu scene is created
     private void Start()
     {
-        timeText.GetComponent<TextMeshPro>().text = "En " + ConvertTime(gameManager.timeElapsed);
-        if (gameManager.NumberOfStolenArtefacts > 1)
-            timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
-        else
-            timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
-        timeText.GetComponent<TextMeshPro>().text = "Pour un total de €" + gameManager.stolen;
+        // Retrieve the gameObject and read the results
+        gameManager = FindObjectOfType<GameManager>();
+
+        if (false)
+        {
+            timeText.GetComponent<TextMeshPro>().text = "En " + ConvertTime(gameManager.timeElapsed);
+            if (gameManager.NumberOfStolenArtefacts > 1)
+                timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
+            else
+                timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
+            timeText.GetComponent<TextMeshPro>().text = "Pour un total de €" + gameManager.stolen;
+        }
     }
 
     private void Update()
     {
         CalculateButtonMetrics();
+        if (Input.anyKey)
+            SceneManager.LoadScene("Menu");
     }
 
     private string ConvertTime(double time)
@@ -55,15 +64,6 @@ public class EndMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    // Every single button generated dynamicly on the main menu
-    private void OnGUI()
-    {
-        GUI.skin = _GuiSkin;
-
-        if (GUI.Button(new Rect(_PosX, _PosY + _BtnHeight * 4, _BtnWidth, _BtnHeight), "Quitter"))
-            QuitGame();
     }
 
     // Not only calculating these on start since the user can resize the window
