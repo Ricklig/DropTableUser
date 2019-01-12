@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
-    public AlertManager AlertManager;
+    public AlertManager AlertManager = new AlertManager();
     public bool isPlaying = false;
 
     public double stolen = 0;

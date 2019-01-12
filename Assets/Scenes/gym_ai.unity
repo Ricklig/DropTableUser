@@ -107,7 +107,7 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 23800000, guid: 0b5397b878d6094449fc9833978e1e44, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a583414464c47e341b804ea6bfda1062, type: 2}
 --- !u!1 &137170504
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,11 +625,6 @@ Prefab:
       propertyPath: possibleNextNodes.Array.data[2]
       value: 
       objectReference: {fileID: 956645345}
-    - target: {fileID: 23302115857826752, guid: bc4b53687c84c2c46907e0933a4dae3b,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2811dfe69b7da184495fd8791f3da0ba, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc4b53687c84c2c46907e0933a4dae3b, type: 2}
   m_IsPrefabParent: 0
@@ -641,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee1325749b0b8a42856ab4e3b5f40a7, type: 3}
 --- !u!114 &956645345 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114419225531105270, guid: b9e5765e056f31844b454891b05a05a4,
+  m_PrefabParentObject: {fileID: 114934479657247650, guid: bc4c1f355f6910a49bc9345721f7eb9e,
     type: 2}
   m_PrefabInternal: {fileID: 1356800437}
   m_Script: {fileID: 11500000, guid: ff792cb985f4dbc4ba5f065f7b9c043e, type: 3}
@@ -836,64 +831,55 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 24.57
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalPosition.z
       value: -2.83
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4020668714322280, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+    - target: {fileID: 4981893619463724, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1256399657497628, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
-      propertyPath: m_Name
-      value: PedestalNavNode
-      objectReference: {fileID: 0}
-    - target: {fileID: 114419225531105270, guid: b9e5765e056f31844b454891b05a05a4,
+    - target: {fileID: 114934479657247650, guid: bc4c1f355f6910a49bc9345721f7eb9e,
         type: 2}
       propertyPath: nextNavNode
       value: 
       objectReference: {fileID: 847954410}
-    - target: {fileID: 114419225531105270, guid: b9e5765e056f31844b454891b05a05a4,
+    - target: {fileID: 114934479657247650, guid: bc4c1f355f6910a49bc9345721f7eb9e,
         type: 2}
       propertyPath: backNavNode
       value: 
       objectReference: {fileID: 935682700}
-    - target: {fileID: 23743548891022938, guid: b9e5765e056f31844b454891b05a05a4,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8e372552ed101204eb410d5f6cce98c2, type: 2}
-    - target: {fileID: 114419225531105270, guid: b9e5765e056f31844b454891b05a05a4,
+    - target: {fileID: 114934479657247650, guid: bc4c1f355f6910a49bc9345721f7eb9e,
         type: 2}
       propertyPath: PedestalTransform
       value: 
       objectReference: {fileID: 1913030436}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b9e5765e056f31844b454891b05a05a4, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: bc4c1f355f6910a49bc9345721f7eb9e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1456349976
 GameObject:

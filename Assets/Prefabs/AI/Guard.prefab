@@ -193,7 +193,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 50
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -244,7 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebffe1ee44b20f4c9f7f71ce8aef903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VisionAngle: 0
+  VisionRange: 0
   InitialNavNode: {fileID: 0}
+  SupriseDuration: 0
   lastSeenPlayerPosition: {x: 0, y: 0, z: 0}
   lastHeardPlayerPosition: {x: 0, y: 0, z: 0}
 --- !u!136 &136693915920734140

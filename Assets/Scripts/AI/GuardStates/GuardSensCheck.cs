@@ -12,7 +12,7 @@ public class GuardSensState : GuardState {
         /*check sens here*/
         if (CheckVision())
             return new GuardPlayerInSightState(guardAI);
-        return null;
+        return new GuardPatrolState(guardAI);
 
     }
     
