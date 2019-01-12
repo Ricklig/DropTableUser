@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GuardPlayerInSightState : GuardSensState {
     private bool isChasing = false;
+    float timer = 0;
     public GuardPlayerInSightState(GuardAI guardAI) : base(guardAI)
     {
     }
@@ -13,11 +14,20 @@ public class GuardPlayerInSightState : GuardSensState {
         GuardState state = base.DoAction();
         if (state.GetType() == typeof(GuardPlayerInSightState))
         {
-            if (isChasing)
-                guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
+            if (!isChasing)
+            {
+                //put exclamation mark
+                if (timer >= guardAI.SupriseDuration)
+                {
+                    isChasing = true;
+                }
+                timer += Time.deltaTime;
+            }        
+            //guard is suprised for a duration
             else
             {
-                //guard is suprised for a duration
+                timer = 0;
+                guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
             }
             return this;
         }

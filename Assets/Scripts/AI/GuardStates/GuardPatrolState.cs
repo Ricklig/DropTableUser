@@ -11,13 +11,18 @@ public class GuardPatrolState : GuardSensState {
     {
         //add sense here (vision detection and such)
         //we start patroling
+        GuardState state = base.DoAction();
+        if (state.GetType() != this.GetType())
+        {
+            return state;
+        }
         Patrol();
         return this;
     }
     private void Patrol()
     {
-        base.DoAction();
-        if (guardAI.currentNavNode.transform.position == null)
+
+        if (guardAI.currentNavNode == null)
         {
             return;
         }

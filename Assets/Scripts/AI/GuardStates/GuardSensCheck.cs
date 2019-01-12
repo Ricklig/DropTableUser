@@ -11,30 +11,32 @@ public class GuardSensState : GuardState {
     {
         /*check sens here*/
         if (CheckVision())
+        {
             return new GuardPlayerInSightState(guardAI);
+        }
         return new GuardPatrolState(guardAI);
 
     }
     
     private bool CheckVision()
     {
-        Vector3 spherePos = new Vector3(guardAI.transform.position.x, guardAI.transform.position.y, guardAI.transform.position.z + 10);
+        Vector3 spherePos = guardAI.transform.position + guardAI.transform.forward * 10;
         foreach (var collider in Physics.OverlapSphere(spherePos, 10))
         {
             if (collider.gameObject.tag == "Player")
             {
+                //test if the player is hidden behind a wall or something
+                Ray ray = new Ray(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized);
+                RaycastHit hitInfo;
+                Physics.Raycast(ray, out hitInfo, guardAI.VisionRange + 1);
+                if (hitInfo.collider && hitInfo.collider.gameObject.gameObject.tag != "Player")
+                    return false;
+                Debug.DrawRay(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized * (guardAI.VisionRange + 1), Color.red, 0.0f);
                 if (IsInConeOfSight(collider.gameObject.transform.position))
                 {
                     guardAI.lastSeenPlayerPosition = collider.gameObject.transform.position;
                     return true;
                 }
-                //test if the player is hidden behind a wall or something
-                Ray ray = new Ray(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized);
-                Debug.DrawRay(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized * (guardAI.VisionRange + 1), Color.red, 0.0f);
-                RaycastHit hitInfo;
-                Physics.Raycast(ray, out hitInfo, guardAI.VisionRange + 1);
-                if (hitInfo.collider && hitInfo.collider.gameObject.gameObject.tag != "Player")
-                    return false;
             }
         }
         return false;
@@ -53,7 +55,7 @@ public class GuardSensState : GuardState {
         //Vector3 visionAxe = (forward / testBuff).normalized;
         Debug.DrawRay(aiPos, visionAxe * guardAI.VisionRange, Color.white, 0.0f);
         Debug.DrawRay(aiPos, visionAxe2 * guardAI.VisionRange, Color.white, 0.0f);
-        if (Mathf.Abs((aiPos - objectPos).magnitude) > guardAI.VisionRange)
+        if (Mathf.Abs((objectPos - aiPos).magnitude) > guardAI.VisionRange)
         {
             return false;
         }
