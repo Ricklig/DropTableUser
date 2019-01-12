@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class MainMenu : MonoBehaviour {
     const float DEFAULT_VOL = 0f;
     const float MIN_VOL = -80f;
     const float MAX_VOL = 20f;
