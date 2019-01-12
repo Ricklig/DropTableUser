@@ -70,7 +70,7 @@ public class GameManager : Singleton<GameManager> {
     {
         mc.levelUp();
         stolen += val;
-        valueStolen.text = stolen.ToString() + "€";
+        valueStolen.text = "€" + stolen.ToString();
         NumberOfStolenArtefacts++;
         amountStolen.text = NumberOfStolenArtefacts.ToString();
     }
