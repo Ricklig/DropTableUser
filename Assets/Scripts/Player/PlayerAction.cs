@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour {
+    
+    private GameManager gm;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetButtonDown("Interact"))
         {
             Action();
+        }
+
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+
+        if (collision.gameObject.tag == "Escape")
+        {
+            gm.escape();
         }
     }
 
@@ -41,8 +53,8 @@ public class PlayerAction : MonoBehaviour {
                 {
                     if(hit.collider.gameObject.tag.Equals("Art"))
                     {
-                        Debug.Log("hit");
-                    hit.collider.gameObject.tag = "Stolen";
+                         gm.addValue(hit.collider.GetComponent<Value>().getValue());
+                         hit.collider.gameObject.tag = "Stolen";
                      }
                 }
             

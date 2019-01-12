@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/gym_map.unity
+    guid: 64dd1f2d247ded5468f09cf8321731d6
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b83b7da02a5519a44afb7bc5e94f1dcd
