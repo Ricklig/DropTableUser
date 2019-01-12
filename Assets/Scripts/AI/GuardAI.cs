@@ -29,15 +29,17 @@ public class GuardAI : MonoBehaviour {
         get;
         set;
     }
+    public AudioSource audioSource
+    {
+        get;
+        set;
+    }
     // Use this for initialization
     void Start () {
+        audioSource = GetComponent<AudioSource>();
         guardState = new GuardPatrolState(this);
         navMeshAgent = GetComponent<NavMeshAgent>();
         currentNavNode = InitialNavNode;
-        //navMeshAgent.SetDestination(currentNavNode.transform.position);
-        VisionAngle = 30;
-        VisionRange = 5;
-
     }
 	
 	// Update is called once per frame
