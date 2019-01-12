@@ -58,7 +58,6 @@ public class PlayerMove : MonoBehaviour {
         {
             if (mc.getCurrentLevel() == 2)
             {
-                Debug.Log("loop");
                 level1.Play();
             }
             else if (mc.getCurrentLevel() == 3)
