@@ -9,7 +9,7 @@ public class JunctionNavNodes : INavNode {
         List<INavNode> nextNodeChoices = new List<INavNode>();
         foreach (INavNode navNode in possibleNextNodes)
         {
-            if (navNode != previousNode)
+            if (navNode && navNode != previousNode)
                 nextNodeChoices.Add(navNode);
         }
         nextNodeChoices.Remove(previousNode);

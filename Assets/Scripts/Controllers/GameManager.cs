@@ -37,11 +37,21 @@ public class GameManager : Singleton<GameManager> {
     // Update is called once per frame
     void Update()
     {
+        CheckStatus();
         if (isPlaying)
         {
             timeElapsed += Time.deltaTime;
             timer.text = ConvertTime(timeElapsed);
         }
+    }
+
+    // To know wether we should increment the timer or not
+    private void CheckStatus()
+    {
+        if (SceneManager.GetActiveScene().name == "gym_map" && Time.timeScale == 1f)
+            isPlaying = true;
+        else
+            isPlaying = false;
     }
 
     private string ConvertTime(double time)
@@ -77,5 +87,10 @@ public class GameManager : Singleton<GameManager> {
     public int getQuantity()
     {
         return NumberOfStolenArtefacts;
+    }
+
+    public void KillPlayer()
+    {
+        Debug.Log("Your Dead");
     }
 }

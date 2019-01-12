@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour {
     const float MIN_VOL = -80f;
     const float MAX_VOL = 20f;
 
-    public GameManager gameManager;
     public AudioMixer effectsMixer;
     public AudioMixer musicMixer;
     public Dropdown qualityDd, resolutionDd;
@@ -67,7 +66,6 @@ public class MainMenu : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        gameManager.isPlaying = true;
     }
 
     // Quits the game, need to actually build the game though, it does not work on the editor
