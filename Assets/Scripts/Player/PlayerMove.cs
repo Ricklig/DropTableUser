@@ -54,10 +54,11 @@ public class PlayerMove : MonoBehaviour {
             moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
         }
 
-        if (Input.GetKey("a") || Input.GetKey("d") || Input.GetKey("w") || Input.GetKey("s"))
+        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
         {
             if (mc.getCurrentLevel() == 2)
             {
+                Debug.Log("loop");
                 level1.Play();
             }
             else if (mc.getCurrentLevel() == 3)
@@ -71,7 +72,7 @@ public class PlayerMove : MonoBehaviour {
                 level3.Play();
             }
         }
-        else 
+        else if (!Input.GetKey("a") && !Input.GetKey("d") && !Input.GetKey("w") && !Input.GetKey("s"))
         {
             
             level1.Stop();
