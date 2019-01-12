@@ -48,7 +48,8 @@ public class GameManager : Singleton<GameManager> {
     // To know wether we should increment the timer or not
     private void CheckStatus()
     {
-        if (SceneManager.GetActiveScene().name == "gym_map" && Time.timeScale == 1f)
+        if ((SceneManager.GetActiveScene().name == "gym_map" && Time.timeScale == 1f) ||
+            (SceneManager.GetActiveScene().name == "gym_UI" && Time.timeScale == 1f))
             isPlaying = true;
         else
             isPlaying = false;
