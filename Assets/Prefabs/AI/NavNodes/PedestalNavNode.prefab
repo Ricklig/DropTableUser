@@ -9,33 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1256399657497628}
+  m_RootGameObject: {fileID: 1890018017202666}
   m_IsPrefabParent: 1
---- !u!1 &1256399657497628
+--- !u!1 &1890018017202666
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4020668714322280}
-  - component: {fileID: 33688392435994972}
-  - component: {fileID: 136785553962946342}
-  - component: {fileID: 23743548891022938}
-  - component: {fileID: 114419225531105270}
+  - component: {fileID: 4981893619463724}
+  - component: {fileID: 33297796161354938}
+  - component: {fileID: 136158625895275092}
+  - component: {fileID: 23660819413090034}
+  - component: {fileID: 114934479657247650}
   m_Layer: 0
-  m_Name: PedestalCheckVolume
+  m_Name: PedestalNavNode
   m_TagString: PedestalCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4020668714322280
+--- !u!4 &4981893619463724
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256399657497628}
+  m_GameObject: {fileID: 1890018017202666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.57, y: 1, z: -2.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -43,12 +43,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23743548891022938
+--- !u!23 &23660819413090034
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256399657497628}
+  m_GameObject: {fileID: 1890018017202666}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -75,19 +75,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33688392435994972
+--- !u!33 &33297796161354938
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256399657497628}
+  m_GameObject: {fileID: 1890018017202666}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114419225531105270
+--- !u!114 &114934479657247650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256399657497628}
+  m_GameObject: {fileID: 1890018017202666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff792cb985f4dbc4ba5f065f7b9c043e, type: 3}
@@ -96,12 +96,12 @@ MonoBehaviour:
   nextNavNode: {fileID: 0}
   backNavNode: {fileID: 0}
   PedestalTransform: {fileID: 0}
---- !u!136 &136785553962946342
+--- !u!136 &136158625895275092
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256399657497628}
+  m_GameObject: {fileID: 1890018017202666}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1

@@ -357,6 +357,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114641826315289114, guid: a4f8661e8f4bd3b4ab6b4ca1f41ba6aa,
+        type: 2}
+      propertyPath: VisionAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641826315289114, guid: a4f8661e8f4bd3b4ab6b4ca1f41ba6aa,
+        type: 2}
+      propertyPath: VisionRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641826315289114, guid: a4f8661e8f4bd3b4ab6b4ca1f41ba6aa,
+        type: 2}
+      propertyPath: SupriseDuration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4f8661e8f4bd3b4ab6b4ca1f41ba6aa, type: 2}
   m_IsPrefabParent: 0

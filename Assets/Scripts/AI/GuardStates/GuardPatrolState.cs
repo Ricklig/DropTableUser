@@ -17,7 +17,7 @@ public class GuardPatrolState : GuardSensState {
     private void Patrol()
     {
         base.DoAction();
-        if (guardAI.currentNavNode.transform.position != null)
+        if (guardAI.currentNavNode.transform.position == null)
         {
             return;
         }
