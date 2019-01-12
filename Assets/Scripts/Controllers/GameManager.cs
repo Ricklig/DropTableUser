@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
-{
-
+public class GameManager : Singleton<GameManager> {
     public AlertManager AlertManager;
 
     public MusicController mc;

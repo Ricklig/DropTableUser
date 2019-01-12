@@ -5,11 +5,19 @@ using UnityEngine;
 using UnityEngine.AI;
 enum AlertLevel { None, MinorAlert, Alert, SevereAlert }
 public class GuardAI : MonoBehaviour {
+    public int VisionAngle
+    {
+        get;
+        set;
+    }
+    public int VisionRange
+    {
+        get;
+        set;
+    }
     public INavNode InitialNavNode;
-
     private GuardState guardState;
     private Task behaviourTree;
-    private BlackBoard guardBlackBoard;
     public INavNode currentNavNode
     {
         get;
@@ -25,17 +33,22 @@ public class GuardAI : MonoBehaviour {
         get;
         set;
     }
+    public Vector3 lastSeenPlayerPosition;
+    public Vector3 lastHeardPlayerPosition;
     // Use this for initialization
     void Start () {
         guardState = new GuardPatrolState(this);
         navMeshAgent = GetComponent<NavMeshAgent>();
         currentNavNode = InitialNavNode;
         //navMeshAgent.SetDestination(currentNavNode.transform.position);
-	}
+        VisionAngle = 30;
+        VisionRange = 5;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        guardState.DoAction();
+        guardState = guardState.DoAction();
     }
     private void OnTriggerEnter(Collider other)
     {

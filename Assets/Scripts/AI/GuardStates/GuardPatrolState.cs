@@ -17,6 +17,10 @@ public class GuardPatrolState : GuardSensState {
     private void Patrol()
     {
         base.DoAction();
+        if (guardAI.currentNavNode.transform.position != null)
+        {
+            return;
+        }
         guardAI.navMeshAgent.SetDestination(guardAI.currentNavNode.transform.position);
         if (guardAI.navMeshAgent.remainingDistance <= 0.5)
         {
