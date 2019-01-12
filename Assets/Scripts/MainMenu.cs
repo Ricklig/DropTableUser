@@ -134,6 +134,28 @@ public class MainMenu : MonoBehaviour {
             controls.gameObject.SetActive(false);
     }
 
+    // The lower the index, the worst the quality is, e.g. no shadows rendered
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    // Toggles fullscreen and windowed mode, not feeling like adding windowed fullscreen
+    public void SetFullscreen(bool isFullscreen)
+    {
+        if (isFullscreen)
+            Screen.fullScreen = true;
+        else
+            Screen.fullScreen = false;
+    }
+
+    // Sets the resolution depending on the index [0, 5], 0 being the worst
+    public void SetResolution(int index)
+    {
+        Resolution resolution = resolutions[index];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
     // Retrieving actual value to print the right slider, reading the new value at each frame to update the slider
     void EffectsVolumeSlider()
     {
