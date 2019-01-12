@@ -9,6 +9,7 @@ public class GuardPatrolState : GuardSensState {
 
     public override GuardState DoAction()
     {
+        Debug.Log("GuardPatrolState");
         //add sense here (vision detection and such)
         //we start patroling
         GuardState state = base.DoAction();

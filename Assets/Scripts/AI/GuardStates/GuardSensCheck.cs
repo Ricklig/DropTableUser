@@ -9,6 +9,7 @@ public class GuardSensState : GuardState {
 
     public override GuardState DoAction()
     {
+        Debug.Log("SensCheck");
         /*check sens here*/
         if (CheckVision())
         {
@@ -64,8 +65,7 @@ public class GuardSensState : GuardState {
         float buff2 = Vector3.Dot(directionVector, visionAxe2);
         if (buff1 > angleTest && buff2 > angleTest)
         {
-            //we 'should' be inside the cone we now need to check the range and maybe do a raycast to make sure there's no 'wall' between us
-            Debug.Log("Inside vision Cone");
+            //Debug.Log("Inside vision Cone");
             return true;
         }
         return false;

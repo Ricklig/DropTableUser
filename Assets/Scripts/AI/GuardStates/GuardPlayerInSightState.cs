@@ -12,6 +12,7 @@ public class GuardPlayerInSightState : GuardSensState {
 
     public override GuardState DoAction()
     {
+        Debug.Log("GuardPlayerInSightState");
         GuardState state = base.DoAction();
         if (state.GetType() == typeof(GuardPlayerInSightState))
         {
