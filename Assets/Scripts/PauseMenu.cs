@@ -11,16 +11,10 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused == true)
-            {
                 Resume();
-            }
             else
-            {
                 Pause();
-            }
         }
-        else if (Time.timeScale == 1f)
-            Resume();
     }
 
     public void Resume()
