@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaaab992b76bb94ab86cccde9d9a935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectsMixer: {fileID: 24100000, guid: b833af8cf707a424db31fa9cd162f6dd, type: 2}
+  effectsMixer: {fileID: 24100000, guid: 2056963f405cafe4c8a99250f4544ac9, type: 2}
   musicMixer: {fileID: 24100000, guid: 8df5c535c8547f340b207bd9e0c104de, type: 2}
   qualityDd: {fileID: 1414467504}
   resolutionDd: {fileID: 1986505692}
@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &135560683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1203,7 +1203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c856d154a4b6c9e48ba46ca0a9e9dcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStarted: 0
+  mc: {fileID: 0}
+  isPlaying: 0
+  stolen: 0
+  timeElapsed: 0
+  NumberOfStolenArtefacts: 0
   amountStolen: {fileID: 0}
 --- !u!4 &838770132
 Transform:
