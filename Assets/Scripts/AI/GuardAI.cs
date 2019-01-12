@@ -39,11 +39,11 @@ public class GuardAI : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.tag == "PedestalCheck" && GuardState)
+        if (other.tag == "PedestalCheck" && guardState.GetType() == typeof(GuardPatrolState))
         {
-            Quaternion toRotation = Quaternion.FromToRotation(transform.position, other.gameObject.GetComponent<PedestalNavNode>().PedestalTransform.position);
+            guardState = new GuardPedestalCheckState(this, other.GetComponent<PedestalNavNode>().PedestalTransform.gameObject);
             // do some logic to check the artefact if not in the alert level
-        }*/
+        }
     } 
 
 }
