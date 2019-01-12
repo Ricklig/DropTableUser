@@ -5,17 +5,13 @@ using UnityEngine;
 using UnityEngine.AI;
 enum AlertLevel { None, MinorAlert, Alert, SevereAlert }
 public class GuardAI : MonoBehaviour {
-    public int VisionAngle
-    {
-        get;
-        set;
-    }
-    public int VisionRange
-    {
-        get;
-        set;
-    }
+    public int VisionAngle;
+    public int VisionRange;
     public INavNode InitialNavNode;
+    public float SupriseDuration;
+    public Vector3 lastSeenPlayerPosition;
+    public Vector3 lastHeardPlayerPosition;
+
     private GuardState guardState;
     private Task behaviourTree;
     public INavNode currentNavNode
@@ -33,8 +29,6 @@ public class GuardAI : MonoBehaviour {
         get;
         set;
     }
-    public Vector3 lastSeenPlayerPosition;
-    public Vector3 lastHeardPlayerPosition;
     // Use this for initialization
     void Start () {
         guardState = new GuardPatrolState(this);

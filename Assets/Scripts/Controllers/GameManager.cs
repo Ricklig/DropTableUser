@@ -5,10 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
-    public AlertManager AlertManager;
+    public AlertManager AlertManager = new AlertManager();
+
 
     public MusicController mc;
-
     public bool isPlaying = false;
 
     public double stolen = 0;
