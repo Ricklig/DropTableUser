@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuardPedestalCheckState : GuardSensState {
     private enum PedestalCheckState { TurningTowardArtefact, PedestalCheck, TurningTowardOldRotation, Finished }
-    private PedestalCheckState pedestalCheckState = PedestalCheckState.TurningTowardArtefact;
+    private PedestalCheckState pedestalCheckState = PedestalCheckState.PedestalCheck;
     private GameObject artefact;
     public GuardPedestalCheckState(GuardAI guardAI, GameObject artefact) : base(guardAI)
     {
@@ -24,12 +24,14 @@ public class GuardPedestalCheckState : GuardSensState {
         }
         else if (pedestalCheckState == PedestalCheckState.PedestalCheck)
         {
-            if (artefact.tag == "stolen")
+            if (artefact.tag == "Stolen")
             {
                 GameManager.Instance.IncrementSeenStolenItem();
+                artefact.tag = "SeenStolen";
                 //augment alert mode
             }
-            return this;
+            // temp
+            return new GuardPatrolState(guardAI);
         }
         else if (pedestalCheckState == PedestalCheckState.TurningTowardOldRotation)
         {
