@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
-    public AlertManager AlertManager;
+    public AlertManager AlertManager = new AlertManager();
     private double stolen = 0;
     private int NumberOfStolenArtefacts = 0;
 
