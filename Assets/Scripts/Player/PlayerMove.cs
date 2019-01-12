@@ -41,13 +41,13 @@ public class PlayerMove : MonoBehaviour {
         float moveVertical = 0;
         if (sprint)
         {
-            moveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 5.0f * speedFactor * (1-(gm.getQuantity()/100)) ;
-            moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 5.0f * speedFactor * (1 - (gm.getQuantity() / 100));
+            moveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 5.0f * speedFactor * (1-(2*gm.getQuantity()/100)) ;
+            moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 5.0f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
         }
         else
         {
-            moveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 3.0f * speedFactor * (1 - (gm.getQuantity() / 100));
-            moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speedFactor * (1 - (gm.getQuantity() / 100));
+            moveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 3.0f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
+            moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
         }
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
