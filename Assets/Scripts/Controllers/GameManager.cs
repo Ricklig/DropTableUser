@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager> {
+public class GameManager : Singleton<GameManager>
+{
 
     public AlertManager AlertManager;
+
+    public MusicController mc;
+
     public bool isPlaying = false;
 
     public double stolen = 0;
@@ -24,19 +28,22 @@ public class GameManager : Singleton<GameManager> {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         DontDestroyOnLoad(gameObject);
         timeElapsed = 0;
-}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isPlaying)
             timeElapsed += Time.deltaTime;
-	}
+    }
 
     public void addValue(double val)
     {
+        mc.levelUp();
         stolen += val;
         amountStolen.text = stolen.ToString();
         NumberOfStolenArtefacts++;
