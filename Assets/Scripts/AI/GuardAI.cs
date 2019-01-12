@@ -25,18 +25,10 @@ public class GuardAI : MonoBehaviour {
         get;
         set;
     }
-    private Transform transform;
-    public float speed
-    {
-        get;
-        set;
-    }
-    private 
     // Use this for initialization
     void Start () {
         guardState = new GuardPatrolState(this);
         navMeshAgent = GetComponent<NavMeshAgent>();
-        transform = GetComponent<Transform>();
         currentNavNode = InitialNavNode;
         //navMeshAgent.SetDestination(currentNavNode.transform.position);
 	}
