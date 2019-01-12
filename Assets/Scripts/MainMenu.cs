@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour {
         // Source : Tutorial at https://www.youtube.com/watch?v=YOaYQrN1oYQ
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string widthByHeight = resolutions[i].width + " par " + resolutions[i].height;
+            string widthByHeight = resolutions[i].width + " x " + resolutions[i].height;
             choices.Add(widthByHeight);
 
             if (resolutions[i].width == Screen.currentResolution.width &&
@@ -81,50 +81,50 @@ public class MainMenu : MonoBehaviour {
 
         if (currentMenu == Menu.main)
         {
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "Jouer"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "JOUER"))
             {
                 StartGame();
                 currentMenu = Menu.play;
             }
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "Options"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "OPTIONS"))
                 currentMenu = Menu.options;
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 4, btnWidth, btnHeight), "Quitter"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 4, btnWidth, btnHeight), "QUITTER"))
                 QuitGame();
         }
         else if (currentMenu == Menu.options)
         {
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "Controles"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "CONTROLES"))
                 currentMenu = Menu.controls;
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "Audio"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "AUDIO"))
                 currentMenu = Menu.audio;
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "Video"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "VIDEO"))
                 currentMenu = Menu.video;
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "Retour"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "RETOUR"))
                 currentMenu = Menu.main;
         }
         else if (currentMenu == Menu.controls)
         {
             controls.gameObject.SetActive(true);
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 6, btnWidth, btnHeight), "Retour"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 6, btnWidth, btnHeight), "RETOUR"))
                 currentMenu = Menu.options;
         }
         else if (currentMenu == Menu.audio)
         {
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "Volume effets"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "VOLUME EFFETS"))
                 fXVolume = DEFAULT_VOL;
             EffectsVolumeSlider();
 
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "Volume musique"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "VOLUME MUSIQUE"))
                musicVolume = DEFAULT_VOL;
             EffectsMusicSlider();
 
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "Retour"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "RETOUR"))
                 currentMenu = Menu.options;
         }
         else if (currentMenu == Menu.video)
         {
             SetVideoOptions();
-            if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "Retour"))
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "RETOUR"))
                 currentMenu = Menu.options;
         }
 

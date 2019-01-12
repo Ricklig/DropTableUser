@@ -5,6 +5,11 @@ public class PauseMenu : MonoBehaviour
 {
     public bool isPaused;
     public GameObject PauseMenuUI;
+    public GUISkin guiSkin;
+
+    int screenWidth, screenHeight;
+    int btnWidth, btnHeight;
+    float posX, posY;
 
     void Update()
     {
@@ -14,6 +19,29 @@ public class PauseMenu : MonoBehaviour
                 Resume();
             else
                 Pause();
+        }
+    }
+
+    private void OnGUI()
+    {
+        int screenWidth = Screen.width;
+        int screenHeight = Screen.height;
+        int btnWidth = screenWidth / 3;
+        int btnHeight = screenHeight / 10;
+
+        int posX = screenWidth / 2 - btnWidth / 2;
+        float posY = (3f / 10f) * screenHeight;
+
+        GUI.skin = guiSkin;
+      
+        if (Time.timeScale.Equals(0f))
+        {
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "CONTINUER"))
+                Resume();
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "MENU PRINCIPAL"))
+                Options();
+            if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "QUITTER"))
+                Quit();
         }
     }
 
