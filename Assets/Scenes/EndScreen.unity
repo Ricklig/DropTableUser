@@ -387,6 +387,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _GuiSkin: {fileID: 11400000, guid: 0a6b63bbc7b7fa249914001f43e76a86, type: 2}
+  gameManager: {fileID: 0}
+  timeText: {fileID: 1095852253}
+  quantityText: {fileID: 521765712}
+  valueText: {fileID: 1422195045}
 --- !u!1 &494706784
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +416,7 @@ RectTransform:
   m_GameObject: {fileID: 494706784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.768852, y: 5.2959886, z: 5.2305994}
+  m_LocalScale: {x: 9.153601, y: 5.2959886, z: 5.2305994}
   m_Children: []
   m_Father: {fileID: 286317122}
   m_RootOrder: 0
