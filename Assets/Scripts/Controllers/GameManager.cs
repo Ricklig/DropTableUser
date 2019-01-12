@@ -89,4 +89,9 @@ public class GameManager : Singleton<GameManager> {
     {
         return NumberOfStolenArtefacts;
     }
+
+    public void KillPlayer()
+    {
+        Debug.Log("Your Dead");
+    }
 }

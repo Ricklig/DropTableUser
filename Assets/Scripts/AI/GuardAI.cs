@@ -51,6 +51,17 @@ public class GuardAI : MonoBehaviour {
             guardState = new GuardPedestalCheckState(this, other.GetComponent<PedestalNavNode>().PedestalTransform.gameObject);
             // do some logic to check the artefact if not in the alert level
         }
-    } 
+        if (other.gameObject.tag == "Player")
+        {
+            GameManager.Instance.KillPlayer();
+        }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GameManager.Instance.KillPlayer();
+        }
+    }
 }
