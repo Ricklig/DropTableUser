@@ -45,21 +45,25 @@ public class PlayerMove : MonoBehaviour {
             moveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 3.0f;
             moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
         }
-        
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f , moveVertical);
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         playerRB.transform.Translate(movement, Space.World);
 
-        //Get the Screen positions of the object
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+        // Please stop turning in the pause menu
+        if (Time.timeScale != 0f)
+        { 
+            //Get the Screen positions of the object
+            Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
 
-        //Get the Screen position of the mouse
-        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            //Get the Screen position of the mouse
+            Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
-        //Get the angle between the points
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen) -90 ;
+            //Get the angle between the points
+            float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen) - 90;
 
-        //Ta Daaa
-        playerRB.transform.rotation = Quaternion.Euler(new Vector3(0f, angle ,0f ));
+            //Ta Daaa
+            playerRB.transform.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
+        }
     }
 
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
