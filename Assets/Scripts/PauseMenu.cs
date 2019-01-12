@@ -11,6 +11,11 @@ public class PauseMenu : MonoBehaviour
     int btnWidth, btnHeight;
     float posX, posY;
 
+    void Start()
+    {
+        Resume();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -34,7 +39,7 @@ public class PauseMenu : MonoBehaviour
 
         GUI.skin = guiSkin;
       
-        if (Time.timeScale.Equals(0f))
+        if (PauseMenuUI.activeSelf)
         {
             if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "CONTINUER"))
                 Resume();
