@@ -57,15 +57,6 @@ public class EndMenu : MonoBehaviour
         Application.Quit();
     }
 
-    // Every single button generated dynamicly on the main menu
-    private void OnGUI()
-    {
-        GUI.skin = _GuiSkin;
-
-        if (GUI.Button(new Rect(_PosX, _PosY + _BtnHeight * 4, _BtnWidth, _BtnHeight), "Quitter"))
-            QuitGame();
-    }
-
     // Not only calculating these on start since the user can resize the window
     void CalculateButtonMetrics()
     {
