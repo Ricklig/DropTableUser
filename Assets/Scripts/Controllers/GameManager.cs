@@ -4,14 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : Singleton<GameManager> {
 
+    public AlertManager AlertManager;
     private double stolen = 0;
-    private int quantity = 0;
+    private int NumberOfStolenArtefacts = 0;
 
     public Text amountStolen;
 
+    private int seenStolenArtefacts = 0;
 
+    public void IncrementSeenStolenItem()
+    {
+        seenStolenArtefacts++;
+        AlertManager.UpdateAlertStatus(seenStolenArtefacts);
+    }
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(gameObject);
@@ -26,7 +33,7 @@ public class GameManager : MonoBehaviour {
     {
         stolen += val;
         amountStolen.text = stolen.ToString();
-        quantity++;
+        NumberOfStolenArtefacts++;
 
     }
 
@@ -42,6 +49,6 @@ public class GameManager : MonoBehaviour {
 
     public int getQuantity()
     {
-        return quantity;
+        return NumberOfStolenArtefacts;
     }
 }
