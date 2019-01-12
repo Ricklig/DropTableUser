@@ -45,7 +45,6 @@ public class PlayerAction : MonoBehaviour {
         RaycastHit tg;
         if(Physics.SphereCast(startPos, .5f, targetPos, out tg, 1.5f))
         {
-            Debug.Log(tg.collider);
             if (tg.collider.gameObject.tag.Equals("Art"))
             {
                 gm.addValue(tg.collider.GetComponent<Value>().getValue());
