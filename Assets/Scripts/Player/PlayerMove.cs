@@ -56,7 +56,7 @@ public class PlayerMove : MonoBehaviour {
         Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
         //Get the angle between the points
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen) + 90;
+        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen) -90 ;
 
         //Ta Daaa
         playerRB.transform.rotation = Quaternion.Euler(new Vector3(0f, angle ,0f ));
