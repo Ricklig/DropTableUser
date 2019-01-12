@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
+    public AlertManager AlertManager;
+    public bool isPlaying = false;
 
-    public AlertManager AlertManager = new AlertManager();
-    private double stolen = 0;
-    private int NumberOfStolenArtefacts = 0;
+    public double stolen = 0;
+    public double timeElapsed = 0;
+    public int NumberOfStolenArtefacts = 0;
 
     public Text amountStolen;
 
@@ -19,14 +21,17 @@ public class GameManager : Singleton<GameManager> {
         seenStolenArtefacts++;
         AlertManager.UpdateAlertStatus(seenStolenArtefacts);
     }
+
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(gameObject);
-    }
+        timeElapsed = 0;
+}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (isPlaying)
+            timeElapsed += Time.deltaTime;
 	}
 
     public void addValue(double val)
@@ -34,7 +39,6 @@ public class GameManager : Singleton<GameManager> {
         stolen += val;
         amountStolen.text = stolen.ToString();
         NumberOfStolenArtefacts++;
-
     }
 
     public void escape()
