@@ -33,7 +33,7 @@ public class GuardSensState : GuardState {
                 Debug.DrawRay(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized * (guardAI.VisionRange + 1), Color.red, 0.0f);
                 RaycastHit hitInfo;
                 Physics.Raycast(ray, out hitInfo, guardAI.VisionRange + 1);
-                if (hitInfo.collider && hitInfo.collider.gameObject.gameObject.tag != "Player");
+                if (hitInfo.collider && hitInfo.collider.gameObject.gameObject.tag != "Player")
                     return false;
             }
         }
@@ -57,7 +57,6 @@ public class GuardSensState : GuardState {
         {
             return false;
         }
-        float buff = Vector3.Dot(directionVector, visionAxe);
         float angleTest = Mathf.Cos(guardAI.VisionAngle * Mathf.Deg2Rad);
         float buff1 = Vector3.Dot(directionVector, visionAxe);
         float buff2 = Vector3.Dot(directionVector, visionAxe2);
