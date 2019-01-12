@@ -67,7 +67,7 @@ public class MainMenu : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+        gameManager.isPlaying = true;
     }
 
     // Quits the game, need to actually build the game though, it does not work on the editor
