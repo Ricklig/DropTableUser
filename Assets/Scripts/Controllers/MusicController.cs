@@ -16,6 +16,11 @@ public class MusicController : MonoBehaviour
         StartCoroutine(Level_up());
     }
 
+    public int getCurrentLevel()
+    {
+        return currentLevel;
+    }
+
     IEnumerator Level_up()
     {
         if (currentLevel == 3)

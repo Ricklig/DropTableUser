@@ -10,6 +10,11 @@ public class PlayerMove : MonoBehaviour {
     private GameManager gm;
 
     public int speedFactor = 1;
+    public MusicController mc;
+    public AudioSource level1;
+    public AudioSource level2;
+    public AudioSource level3;
+    
 
     // Use this for initialization
     void Start () {
@@ -23,7 +28,6 @@ public class PlayerMove : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         Move();
-
         if (Input.GetButtonDown("Sprint"))
         {
             sprint = true;
@@ -50,7 +54,33 @@ public class PlayerMove : MonoBehaviour {
             moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
         }
 
+        if (Input.GetKey("a") || Input.GetKey("d") || Input.GetKey("w") || Input.GetKey("s"))
+        {
+            if (mc.getCurrentLevel() == 2)
+            {
+                level1.Play();
+            }
+            else if (mc.getCurrentLevel() == 3)
+            {
+                level1.Stop();
+                level2.Play();
+            }
+            else if (mc.getCurrentLevel() == 4)
+            {
+                level2.Stop();
+                level3.Play();
+            }
+        }
+        else 
+        {
+            
+            level1.Stop();
+            level2.Stop();
+            level3.Stop();
+        }
+
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
         playerRB.transform.Translate(movement, Space.World);
 
         // Please stop turning in the pause menu
