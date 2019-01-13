@@ -40,37 +40,50 @@ public class GameManager : Singleton<GameManager> {
 
     private void UpgradeAlert(AlertStatus alertStatus)
     {
-        TextMeshProUGUI tmp = alert.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI tmp = null;
+        try
+        {
+            tmp = alert.GetComponent<TextMeshProUGUI>();
+        }
+        catch (MissingReferenceException) { }
 
-        if (alertStatus.Equals(AlertLevel.None))
-        {
-            tmp.text = "Bas";
-            tmp.color = Color.white;
-        }
-        else if (alertStatus.Equals(AlertLevel.MinorAlert))
-        {
-            tmp.text = "Moyen";
-            tmp.color = Color.green;
-        }
-        else if (alertStatus.Equals(AlertLevel.SevereAlert))
-        {
-            tmp.text = "Haut";
-            tmp.color = Color.yellow;
-        }
-        else if (alertStatus.Equals(AlertLevel.SevereAlert))
-        {
-            tmp.text = "MAXIMAL!";
-            tmp.color = Color.red;
+        if (tmp != null)
+        { 
+            if (alertStatus.Equals(AlertLevel.None))
+            {
+                tmp.text = "Bas";
+                tmp.color = Color.white;
+            }
+            else if (alertStatus.Equals(AlertLevel.MinorAlert))
+            {
+                tmp.text = "Moyen";
+                tmp.color = Color.green;
+            }
+            else if (alertStatus.Equals(AlertLevel.SevereAlert))
+            {
+                tmp.text = "Haut";
+                tmp.color = Color.yellow;
+            }
+            else if (alertStatus.Equals(AlertLevel.SevereAlert))
+            {
+                tmp.text = "MAXIMAL!";
+                tmp.color = Color.red;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        TextMeshProUGUI tmp = timer.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI tmp = null;
+        try
+        {
+            tmp = timer.GetComponent<TextMeshProUGUI>();
+        }
+        catch (MissingReferenceException) { }
 
         CheckStatus();
-        if (isPlaying)
+        if (isPlaying && tmp)
         {
             timeElapsed += Time.deltaTime;
             tmp.text = ConvertTime(timeElapsed);
@@ -101,14 +114,23 @@ public class GameManager : Singleton<GameManager> {
 
     public void addValue(double val)
     {
-        TextMeshProUGUI value = timer.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI qty = timer.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI value = null;
+        TextMeshProUGUI qty = null;
+        try
+        {
+            value = timer.GetComponent<TextMeshProUGUI>();
+            qty = timer.GetComponent<TextMeshProUGUI>();
+        }
+        catch (MissingReferenceException) { }
 
-        mc.levelUp();
-        stolen += val;
-        value.text = "€" + stolen.ToString();
-        NumberOfStolenArtefacts++;
-        qty.text = NumberOfStolenArtefacts.ToString();
+        if (qty && value)
+        {
+            mc.levelUp();
+            stolen += val;
+            value.text = "€" + stolen.ToString();
+            NumberOfStolenArtefacts++;
+            qty.text = NumberOfStolenArtefacts.ToString();
+        }
     }
 
     public void escape()
