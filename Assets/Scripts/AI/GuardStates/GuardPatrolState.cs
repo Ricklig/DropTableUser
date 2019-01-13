@@ -10,7 +10,11 @@ public class GuardPatrolState : GuardSensState {
     public override GuardState DoAction()
     {
         guardAI.SetFlashLightPatrolMode();
-        Debug.Log("GuardPatrolState");
+        if (!guardAI.MouvementAudioSource.isPlaying || guardAI.MouvementAudioSource.clip != guardAI.CurrentWalkingClip)
+        {
+            guardAI.MouvementAudioSource.clip = guardAI.CurrentWalkingClip;
+            guardAI.MouvementAudioSource.Play();
+        }
         //add sense here (vision detection and such)
         //we start patroling
         GuardState state = base.DoAction();
