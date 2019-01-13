@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 enum AlertLevel { None, MinorAlert, Alert, SevereAlert }
 public class GuardAI : MonoBehaviour {
+    public float TimeSinceLastStun = 0;
     public SwapSightConeColor swapSightConeColor;
     public int VisionAngle;
     public int VisionRange;
@@ -20,6 +21,7 @@ public class GuardAI : MonoBehaviour {
     private int initialVisionAngle;
     private int initialVisionRange;
     private GuardState guardState;
+    private GuardState previousGuardState;
     private Task behaviourTree;
     public INavNode currentNavNode
     {
@@ -58,7 +60,7 @@ public class GuardAI : MonoBehaviour {
         var aSources = GetComponents<AudioSource>();
         EffectAudioSource = aSources[0];
         MouvementAudioSource = aSources[1];
-
+        previousGuardState = new GuardPatrolState(this);
         guardState = new GuardPatrolState(this);
         navMeshAgent = GetComponent<NavMeshAgent>();
         currentNavNode = InitialNavNode;
@@ -96,11 +98,15 @@ public class GuardAI : MonoBehaviour {
             SupriseDuration = 0;
             //scale the guard
         }
+        GraphicalConeOfView.viewAngle = VisionAngle;
+        GraphicalConeOfView.viewRadius = VisionRange;
     }
 
     // Update is called once per frame
     void Update () {
-        guardState = guardState.DoAction();
+        GuardState temp = guardState;
+        guardState = guardState.DoAction(previousGuardState);
+        previousGuardState = temp;
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -14,11 +14,11 @@ public class GuardPedestalCheckState : GuardSensState {
 
 
     // Update is called once per frame
-    public override GuardState DoAction()
+    public override GuardState DoAction(GuardState previousState)
     {
         guardAI.SetFlashLightPatrolMode();
         Debug.Log("GuardPedestalCheckState");
-        base.DoAction();
+        base.DoAction(previousState);
         Debug.Log("Entering Pedestal State");
         if (pedestalCheckState == PedestalCheckState.TurningTowardArtefact)
         {

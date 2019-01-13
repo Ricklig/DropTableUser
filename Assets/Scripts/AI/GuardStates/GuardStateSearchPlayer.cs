@@ -21,11 +21,11 @@ public class GuardStateSearchPlayer : GuardSensState
         anim.SetBool("Walking", true);
     }
 
-    public override GuardState DoAction()
+    public override GuardState DoAction(GuardState previousState)
     {
         guardAI.SetFlashLightSearchingMode();
         Debug.Log("GuardStateSearchPlayer");
-        GuardState state = base.DoAction();
+        GuardState state = base.DoAction(previousState);
         if (state.GetType() != typeof(GuardPlayerInSightState))
         {
             if (searchPlayerState == SearchPlayerStates.MovingToLastKnownLocation)
