@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager> {
 
     public MusicController mc;
     public bool isPlaying = false;
+    public bool isVictory;
 
     public double stolen = 0;
     public double timeElapsed = 0;
@@ -77,6 +78,12 @@ public class GameManager : Singleton<GameManager> {
 
     public void escape()
     {
+        isVictory = true;
+        SceneManager.LoadScene("EndScreen");
+    }
+
+    public void getCaught()
+    {
         SceneManager.LoadScene("Menu");
     }
 
@@ -92,6 +99,7 @@ public class GameManager : Singleton<GameManager> {
 
     public void KillPlayer()
     {
-        Debug.Log("Your Dead");
+        isVictory = false;
+        Debug.Log("Omae Wa Mou Shindeiru");
     }
 }
