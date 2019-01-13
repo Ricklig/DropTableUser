@@ -119,7 +119,7 @@ public class GameManager : Singleton<GameManager> {
 
     public void getCaught()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("EndScreen");
     }
 
     public double getValue()
@@ -136,6 +136,6 @@ public class GameManager : Singleton<GameManager> {
     {
         isVictory = false;
         Debug.Log("Omae Wa Mou Shindeiru");
-        SceneManager.LoadScene("Menu");
+        getCaught();
     }
 }

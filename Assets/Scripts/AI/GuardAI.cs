@@ -120,6 +120,7 @@ public class GuardAI : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             GameManager.Instance.KillPlayer();
+            
         }
     }
     public void SetFlashLightAlertMode()
