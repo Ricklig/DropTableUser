@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour {
 
     public AudioMixer effectsMixer;
     public AudioMixer musicMixer;
+    public AudioSource onClickSound;
     public Dropdown qualityDd, resolutionDd;
     public Toggle fullscreen;
     public GameObject videoOptions;
@@ -39,7 +40,7 @@ public class MainMenu : MonoBehaviour {
         resolutions = Screen.resolutions;
         resolutionDd.ClearOptions();
         List<string> choices = new List<string>();
-
+        
         // Source : Tutorial at https://www.youtube.com/watch?v=YOaYQrN1oYQ
         for (int i = 0; i < resolutions.Length; i++)
         {
@@ -55,6 +56,11 @@ public class MainMenu : MonoBehaviour {
         resolutionDd.AddOptions(choices);
         resolutionDd.value = indexResolution;
         resolutionDd.RefreshShownValue();
+    }
+
+    private void Test()
+    {
+        Debug.Log("Esketit");
     }
 
     // Calculating the sizes at infinitum in case of resizes
@@ -75,6 +81,11 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();
     }
 
+    private void ClickSound()
+    {
+        onClickSound.Play();
+    }
+
     // Every single button generated dynamicly on the main menu
     private void OnGUI()
     {
@@ -89,49 +100,84 @@ public class MainMenu : MonoBehaviour {
         {
             if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "JOUER"))
             {
+                
                 StartGame();
                 currentMenu = Menu.play;
+                ClickSound();
             }
             if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "OPTIONS"))
+            {
                 currentMenu = Menu.options;
+                ClickSound();
+            }
             if (GUI.Button(new Rect(posX, posY + btnHeight * 4, btnWidth, btnHeight), "QUITTER"))
+            {
                 QuitGame();
+                ClickSound();
+            }
         }
         else if (currentMenu == Menu.options)
         {
             if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "CONTROLES"))
+            {
                 currentMenu = Menu.controls;
+                ClickSound();
+            }
             if (GUI.Button(new Rect(posX, posY + btnHeight * 2, btnWidth, btnHeight), "AUDIO"))
+            { 
                 currentMenu = Menu.audio;
+                ClickSound();
+            }
             if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "VIDEO"))
+            {
                 currentMenu = Menu.video;
+                ClickSound();
+            }
             if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "RETOUR"))
+            {
                 currentMenu = Menu.main;
+                ClickSound();
+            }
         }
         else if (currentMenu == Menu.controls)
         {
             controls.gameObject.SetActive(true);
             if (GUI.Button(new Rect(posX, posY + btnHeight * 6, btnWidth, btnHeight), "RETOUR"))
+            {
                 currentMenu = Menu.options;
+                ClickSound();
+            }
         }
         else if (currentMenu == Menu.audio)
         {
             if (GUI.Button(new Rect(posX, posY + btnHeight * 1, btnWidth, btnHeight), "VOLUME EFFETS"))
+            { 
                 fXVolume = DEFAULT_VOL;
-            EffectsVolumeSlider();
+                ClickSound();
+            }    
+                EffectsVolumeSlider();
 
             if (GUI.Button(new Rect(posX, posY + btnHeight * 3, btnWidth, btnHeight), "VOLUME MUSIQUE"))
+            { 
                musicVolume = DEFAULT_VOL;
+                ClickSound();
+            }
             EffectsMusicSlider();
 
             if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "RETOUR"))
+            { 
                 currentMenu = Menu.options;
+                ClickSound();
+            }
         }
         else if (currentMenu == Menu.video)
         {
             SetVideoOptions();
             if (GUI.Button(new Rect(posX, posY + btnHeight * 5, btnWidth, btnHeight), "RETOUR"))
+            {
                 currentMenu = Menu.options;
+                ClickSound();
+            }
         }
 
         if (currentMenu != Menu.video)
