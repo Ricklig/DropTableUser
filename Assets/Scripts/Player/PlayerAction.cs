@@ -6,6 +6,8 @@ public class PlayerAction : MonoBehaviour {
     
     private GameManager gm;
 
+    public AudioSource pickup;
+
     // Use this for initialization
     void Start () {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
@@ -29,16 +31,10 @@ public class PlayerAction : MonoBehaviour {
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        
-        Gizmos.DrawSphere(transform.position, 1);
-    }
 
     private void Action()
     {
+        
         Vector3 startPos = transform.position; // umm, start position !
         Vector3 targetPos =  transform.forward; // variable for calculated end position
 
@@ -47,6 +43,7 @@ public class PlayerAction : MonoBehaviour {
         {
             if (tg.collider.gameObject.tag.Equals("Art"))
             {
+                pickup.Play();
                 gm.addValue(tg.collider.GetComponent<Value>().getValue());
                 tg.collider.gameObject.tag = "Stolen";
             }
