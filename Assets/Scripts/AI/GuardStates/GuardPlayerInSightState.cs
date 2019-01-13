@@ -6,13 +6,20 @@ public class GuardPlayerInSightState : GuardSensState {
     private bool isChasing = false;
     private bool suprisedClipPlayed = false;
     float timer = 0;
+	private Animator anim;
     public GuardPlayerInSightState(GuardAI guardAI) : base(guardAI)
     {
-    }
+		anim = guardAI.gameObject.GetComponent<Animator>();
+	    anim.SetBool("PlayerSeen", false);
+	    anim.SetBool("PlayerLost", false);
+	    anim.SetBool("MissingArt", false);
 
-    public override GuardState DoAction()
+	}
+	
+	public override GuardState DoAction()
     {
         guardAI.SetFlashLightAlertMode();
+
         Debug.Log("GuardPlayerInSightState");
         GuardState state = base.DoAction();
         if (state.GetType() == typeof(GuardPlayerInSightState))
@@ -21,7 +28,11 @@ public class GuardPlayerInSightState : GuardSensState {
             {
                 if (guardAI.MouvementAudioSource.isPlaying)
                 {
-                    guardAI.MouvementAudioSource.Stop();
+	                anim.SetBool("Walking", true);
+	                anim.SetBool("PlayerSeen", false);
+					anim.SetBool("PlayerLost", false);
+	                anim.SetBool("MissingArt", false);
+					guardAI.MouvementAudioSource.Stop();
                 }
                 guardAI.navMeshAgent.SetDestination(guardAI.transform.position);
                 if (!suprisedClipPlayed)
@@ -33,7 +44,9 @@ public class GuardPlayerInSightState : GuardSensState {
                 //put exclamation mark
                 if (timer >= guardAI.SupriseDuration)
                 {
-                    isChasing = true;
+	                anim.SetBool("PlayerSeen", true);
+					anim.SetBool("Walking", false);
+					isChasing = true;
                 }
                 timer += Time.deltaTime;
             }        
