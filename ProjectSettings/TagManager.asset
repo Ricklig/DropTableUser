@@ -10,6 +10,7 @@ TagManager:
   - Escape
   - SeenStolen
   - NavNode
+  - GuardAnim
   layers:
   - Default
   - TransparentFX
