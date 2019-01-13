@@ -9,7 +9,12 @@ public class AlertManager{
     public AlertStatus currentAlertStatus = AlertStatus.level1;
     public delegate void AlertStatusChanged(AlertStatus alertStatus);
     public event AlertStatusChanged alertStatusChanged;
-    private GameManager mc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    private GameManager mc;
+
+    void OnAwake()
+    {
+       mc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
     public void UpdateAlertStatus(int seenStolenItem)
     {
         if (RedAlertCeil <= seenStolenItem && currentAlertStatus != AlertStatus.RedAlert)

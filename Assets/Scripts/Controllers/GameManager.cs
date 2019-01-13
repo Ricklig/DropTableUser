@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class GameManager : Singleton<GameManager> {
     public AlertManager AlertManager = new AlertManager();
@@ -16,10 +17,10 @@ public class GameManager : Singleton<GameManager> {
     public double timeElapsed = 0;
     public int NumberOfStolenArtefacts = 0;
 
-    public Text amountStolen;
-    public Text valueStolen;
-    public Text timer;
-    public Text alert;
+    public GameObject amountStolen;
+    public GameObject valueStolen;
+    public GameObject timer;
+    public GameObject alert;
 
     private int seenStolenArtefacts = 0;
 
@@ -39,36 +40,53 @@ public class GameManager : Singleton<GameManager> {
 
     private void UpgradeAlert(AlertStatus alertStatus)
     {
-        if (alertStatus.Equals(AlertLevel.None))
+        TextMeshProUGUI tmp = null;
+        try
         {
-            alert.text = "Bas";
-            alert.color = Color.white;
+            tmp = alert.GetComponent<TextMeshProUGUI>();
         }
-        else if (alertStatus.Equals(AlertLevel.MinorAlert))
-        {
-            alert.text = "Moyen";
-            alert.color = Color.green;
-        }
-        else if (alertStatus.Equals(AlertLevel.SevereAlert))
-        {
-            alert.text = "Haut";
-            alert.color = Color.yellow;
-        }
-        else if (alertStatus.Equals(AlertLevel.SevereAlert))
-        {
-            alert.text = "MAXIMAL!";
-            alert.color = Color.red;
+        catch (MissingReferenceException) { }
+
+        if (tmp != null)
+        { 
+            if (alertStatus.Equals(AlertLevel.None))
+            {
+                tmp.text = "Bas";
+                tmp.color = Color.white;
+            }
+            else if (alertStatus.Equals(AlertLevel.MinorAlert))
+            {
+                tmp.text = "Moyen";
+                tmp.color = Color.green;
+            }
+            else if (alertStatus.Equals(AlertLevel.SevereAlert))
+            {
+                tmp.text = "Haut";
+                tmp.color = Color.yellow;
+            }
+            else if (alertStatus.Equals(AlertLevel.SevereAlert))
+            {
+                tmp.text = "MAXIMAL!";
+                tmp.color = Color.red;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        TextMeshProUGUI tmp = null;
+        try
+        {
+            tmp = timer.GetComponent<TextMeshProUGUI>();
+        }
+        catch (MissingReferenceException) { }
+
         CheckStatus();
-        if (isPlaying)
+        if (isPlaying && tmp)
         {
             timeElapsed += Time.deltaTime;
-            timer.text = ConvertTime(timeElapsed);
+            tmp.text = ConvertTime(timeElapsed);
         }
     }
 
@@ -76,7 +94,8 @@ public class GameManager : Singleton<GameManager> {
     private void CheckStatus()
     {
         if ((SceneManager.GetActiveScene().name == "gym_map" && Time.timeScale == 1f) ||
-            (SceneManager.GetActiveScene().name == "gym_UI" && Time.timeScale == 1f))
+            (SceneManager.GetActiveScene().name == "gym_UI" && Time.timeScale == 1f)  ||
+            (SceneManager.GetActiveScene().name == "gym_VF" && Time.timeScale == 1f))
             isPlaying = true;
         else
             isPlaying = false;
@@ -95,11 +114,23 @@ public class GameManager : Singleton<GameManager> {
 
     public void addValue(double val)
     {
-        
-        stolen += val;
-        valueStolen.text = "€" + stolen.ToString();
-        NumberOfStolenArtefacts++;
-        amountStolen.text = NumberOfStolenArtefacts.ToString();
+
+        TextMeshProUGUI value = null;
+        TextMeshProUGUI qty = null;
+        try
+        {
+            value = timer.GetComponent<TextMeshProUGUI>();
+            qty = timer.GetComponent<TextMeshProUGUI>();
+        }
+        catch (MissingReferenceException) { }
+
+        if (qty && value)
+        {
+            stolen += val;
+            value.text = "€" + stolen.ToString();
+            NumberOfStolenArtefacts++;
+            qty.text = NumberOfStolenArtefacts.ToString();
+        }
     }
 
     public void escape()
