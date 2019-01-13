@@ -95,7 +95,7 @@ public class GameManager : Singleton<GameManager> {
 
     public void addValue(double val)
     {
-        mc.levelUp();
+        
         stolen += val;
         valueStolen.text = "€" + stolen.ToString();
         NumberOfStolenArtefacts++;
@@ -128,5 +128,9 @@ public class GameManager : Singleton<GameManager> {
         isVictory = false;
         Debug.Log("Omae Wa Mou Shindeiru");
         getCaught();
+    }
+    public void levelUp()
+    {
+        mc.levelUp();
     }
 }
