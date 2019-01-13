@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager> {
 
     public MusicController mc;
     public bool isPlaying = false;
+    public bool isVictory;
 
     public double stolen = 0;
     public double timeElapsed = 0;
@@ -18,6 +19,7 @@ public class GameManager : Singleton<GameManager> {
     public Text amountStolen;
     public Text valueStolen;
     public Text timer;
+    public Text alert;
 
     private int seenStolenArtefacts = 0;
 
@@ -32,6 +34,31 @@ public class GameManager : Singleton<GameManager> {
     {
         DontDestroyOnLoad(gameObject);
         timeElapsed = 0;
+        AlertManager.alertStatusChanged += UpgradeAlert;
+    }
+
+    private void UpgradeAlert(AlertStatus alertStatus)
+    {
+        if (alertStatus.Equals(AlertLevel.None))
+        {
+            alert.text = "Bas";
+            alert.color = Color.white;
+        }
+        else if (alertStatus.Equals(AlertLevel.MinorAlert))
+        {
+            alert.text = "Moyen";
+            alert.color = Color.green;
+        }
+        else if (alertStatus.Equals(AlertLevel.SevereAlert))
+        {
+            alert.text = "Haut";
+            alert.color = Color.yellow;
+        }
+        else if (alertStatus.Equals(AlertLevel.SevereAlert))
+        {
+            alert.text = "MAXIMAL!";
+            alert.color = Color.red;
+        }
     }
 
     // Update is called once per frame
@@ -77,6 +104,7 @@ public class GameManager : Singleton<GameManager> {
 
     public void escape()
     {
+        isVictory = true;
         SceneManager.LoadScene("EndScreen");
     }
 
@@ -97,6 +125,7 @@ public class GameManager : Singleton<GameManager> {
 
     public void KillPlayer()
     {
-        Debug.Log("Your Dead");
+        isVictory = false;
+        Debug.Log("Omae Wa Mou Shindeiru");
     }
 }

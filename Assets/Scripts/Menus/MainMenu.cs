@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour {
     public Dropdown qualityDd, resolutionDd;
     public Toggle fullscreen;
     public GameObject videoOptions;
+    public GameObject title;
     public GUISkin guiSkin;
     public Image controls;
     public float fXVolume;
@@ -78,6 +79,11 @@ public class MainMenu : MonoBehaviour {
     private void OnGUI()
     {
         GUI.skin = guiSkin;
+
+        if (currentMenu == Menu.main)
+            title.SetActive(true);
+        else
+            title.SetActive(false);
 
         if (currentMenu == Menu.main)
         {

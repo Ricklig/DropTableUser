@@ -12,15 +12,21 @@ public class GuardPlayerInSightState : GuardSensState {
 
     public override GuardState DoAction()
     {
+        guardAI.SetFlashLightAlertMode();
         Debug.Log("GuardPlayerInSightState");
         GuardState state = base.DoAction();
         if (state.GetType() == typeof(GuardPlayerInSightState))
         {
             if (!isChasing)
             {
+                if (guardAI.MouvementAudioSource.isPlaying)
+                {
+                    guardAI.MouvementAudioSource.Stop();
+                }
+                guardAI.navMeshAgent.SetDestination(guardAI.transform.position);
                 if (!suprisedClipPlayed)
                 {
-                    guardAI.audioSource.PlayOneShot(guardAI.audioSource.clip);
+                    guardAI.EffectAudioSource.PlayOneShot(guardAI.EffectAudioSource.clip);
                     suprisedClipPlayed = true;
                 }
 
@@ -34,6 +40,11 @@ public class GuardPlayerInSightState : GuardSensState {
             //guard is suprised for a duration
             else
             {
+                if (!guardAI.MouvementAudioSource.isPlaying)
+                {
+                    guardAI.MouvementAudioSource.clip = guardAI.RunningClip;
+                    guardAI.MouvementAudioSource.Play();
+                }
                 timer = 0;
                 guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
             }
@@ -41,7 +52,7 @@ public class GuardPlayerInSightState : GuardSensState {
         }
         else
         {
-            return state;
+            return new GuardStateSearchPlayer(guardAI);
         }
     }
 }

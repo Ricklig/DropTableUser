@@ -8,11 +8,14 @@ public class EndMenu : MonoBehaviour
     public GUISkin _GuiSkin;
     private GameManager gameManager;
 
-    // Should put the proper type but I'm brain-dead
+    public GameObject title;
     public GameObject timeText;
     public GameObject quantityText;
     public GameObject valueText;
     public GameObject pressToReturn;
+
+    public AudioSource victoryMusic;
+    public AudioSource defeatMusic;
 
     int _IndexResolution;
     int _ScreenWidth, _ScreenHeight;
@@ -27,15 +30,36 @@ public class EndMenu : MonoBehaviour
         // Retrieve the gameObject and read the results
         gameManager = FindObjectOfType<GameManager>();
 
-        if (false)
-        {
-            timeText.GetComponent<TextMeshPro>().text = "En " + ConvertTime(gameManager.timeElapsed);
-            if (gameManager.NumberOfStolenArtefacts > 1)
-                timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
-            else
-                timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
-            timeText.GetComponent<TextMeshPro>().text = "Pour un total de €" + gameManager.stolen;
-        }
+        if (gameManager.isVictory)
+            PrintVictory();
+        else
+            PrintDefeat();            
+    }
+
+    private void PrintVictory()
+    {
+        victoryMusic.Play();
+
+        timeText.GetComponent<TextMeshProUGUI>().text = "FELICITATIONS!";
+        timeText.GetComponent<TextMeshProUGUI>().text = "En " + ConvertTime(gameManager.timeElapsed);
+        if (gameManager.NumberOfStolenArtefacts > 1)
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
+        else
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
+        valueText.GetComponent<TextMeshProUGUI>().text = "Pour un total de €" + gameManager.stolen;
+    }
+
+    private void PrintDefeat()
+    {
+        defeatMusic.Play();
+
+        timeText.GetComponent<TextMeshProUGUI>().text = "OH NON!";
+        timeText.GetComponent<TextMeshProUGUI>().text = "Après " + ConvertTime(gameManager.timeElapsed) + " vous vous êtes\nfait attrapé!";
+        if (gameManager.NumberOfStolenArtefacts > 1)
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous aviez avec vous " + gameManager.NumberOfStolenArtefacts + " objets";
+        else
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous aviez avec vous " + gameManager.NumberOfStolenArtefacts + " objet";
+        valueText.GetComponent<TextMeshProUGUI>().text = "Pour un total de €" + gameManager.stolen;
     }
 
     private void Update()
@@ -49,16 +73,16 @@ public class EndMenu : MonoBehaviour
     private void UpdateGlow()
     {
         if (upstream)
-            outlineValue += 0.01f;
+            outlineValue += 0.003f;
         else
-            outlineValue -= 0.01f;
+            outlineValue -= 0.003f;
 
-        if (outlineValue == 0)
+        if (outlineValue <= 0.00f)
             upstream = true;
-        else if (outlineValue == 1)
+        else if (outlineValue >= 0.30f)
             upstream = false;
-
-        pressToReturn.GetComponent<TextMeshPro>().outlineWidth = outlineValue;
+        
+        pressToReturn.GetComponent<TextMeshProUGUI>().outlineWidth = outlineValue;
     }
 
     private string ConvertTime(double time)
