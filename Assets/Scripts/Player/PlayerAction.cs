@@ -50,6 +50,8 @@ public class PlayerAction : MonoBehaviour {
                 pickup.Play();
                 gm.addValue(tg.collider.GetComponent<Value>().getValue());
                 tg.collider.gameObject.tag = "Stolen";
+                tg.collider.gameObject.SetActive(false);
+                   
             }
         }
         
