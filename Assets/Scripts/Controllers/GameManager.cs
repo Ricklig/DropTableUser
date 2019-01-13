@@ -136,5 +136,6 @@ public class GameManager : Singleton<GameManager> {
     {
         isVictory = false;
         Debug.Log("Omae Wa Mou Shindeiru");
+        SceneManager.LoadScene("Menu");
     }
 }
