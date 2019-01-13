@@ -11,6 +11,6 @@ public abstract class GuardState {
     }
     public virtual GuardState DoAction()
     {
-        return null;
+        return new GuardPatrolState(guardAI);
     }
 }
