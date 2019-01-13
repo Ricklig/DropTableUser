@@ -26,16 +26,13 @@ public class EndMenu : MonoBehaviour
     {
         // Retrieve the gameObject and read the results
         gameManager = FindObjectOfType<GameManager>();
-
-        if (false)
-        {
-            timeText.GetComponent<TextMeshPro>().text = "En " + ConvertTime(gameManager.timeElapsed);
-            if (gameManager.NumberOfStolenArtefacts > 1)
-                timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
-            else
-                timeText.GetComponent<TextMeshPro>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
-            timeText.GetComponent<TextMeshPro>().text = "Pour un total de €" + gameManager.stolen;
-        }
+              
+        timeText.GetComponent<TextMeshProUGUI>().text = "En " + ConvertTime(gameManager.timeElapsed);
+        if (gameManager.NumberOfStolenArtefacts > 1)
+            timeText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
+        else
+            timeText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
+        timeText.GetComponent<TextMeshProUGUI>().text = "Pour un total de €" + gameManager.stolen;     
     }
 
     private void Update()
