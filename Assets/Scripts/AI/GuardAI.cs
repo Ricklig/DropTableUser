@@ -111,7 +111,17 @@ public class GuardAI : MonoBehaviour {
     {
         if (other.tag == "PedestalCheck" && guardState.GetType() == typeof(GuardPatrolState))
         {
-            guardState = new GuardPedestalCheckState(this, other.GetComponent<PedestalNavNode>().PedestalTransform.gameObject);
+            GameObject artefact1 = null;
+            GameObject artefact2 = null;
+            if (other.GetComponent<PedestalNavNode>().PedestalTransform != null)
+            {
+                artefact1 = other.GetComponent<PedestalNavNode>().PedestalTransform.gameObject;
+            }
+            if (other.GetComponent<PedestalNavNode>().PedestalTransform2 != null)
+            {
+                artefact2 = other.GetComponent<PedestalNavNode>().PedestalTransform2.gameObject;
+            }
+            guardState = new GuardPedestalCheckState(this, artefact1, artefact2);
             // do some logic to check the artefact if not in the alert level
         }
         if (other.gameObject.tag == "Player")
