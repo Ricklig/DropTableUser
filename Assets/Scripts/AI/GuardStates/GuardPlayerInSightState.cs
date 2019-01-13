@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GuardPlayerInSightState : GuardSensState {
-    private bool isChasing = false;
     private bool suprisedClipPlayed = false;
     float timer = 0;
 	private Animator anim;
@@ -16,51 +15,23 @@ public class GuardPlayerInSightState : GuardSensState {
 
 	}
 	
-	public override GuardState DoAction()
+	public override GuardState DoAction(GuardState previousState)
     {
         guardAI.SetFlashLightAlertMode();
 
         Debug.Log("GuardPlayerInSightState");
-        GuardState state = base.DoAction();
+        GuardState state = base.DoAction(previousState);
         if (state.GetType() == typeof(GuardPlayerInSightState))
-        {
-            if (!isChasing)
+        {   
+            if (!guardAI.MouvementAudioSource.isPlaying)
             {
-                if (guardAI.MouvementAudioSource.isPlaying)
-                {
-	                anim.SetBool("Walking", false);
-	                anim.SetBool("PlayerSeen", false);
-					anim.SetBool("PlayerLost", true);
-	                anim.SetBool("MissingArt", false);
-					guardAI.MouvementAudioSource.Stop();
-                }
-                guardAI.navMeshAgent.SetDestination(guardAI.transform.position);
-                if (!suprisedClipPlayed)
-                {
-                    guardAI.EffectAudioSource.PlayOneShot(guardAI.EffectAudioSource.clip);
-                    suprisedClipPlayed = true;
-                }
-
-                //put exclamation mark
-                if (timer >= guardAI.SupriseDuration)
-                {
-					isChasing = true;
-                }
-                timer += Time.deltaTime;
-            }        
-            //guard is suprised for a duration
-            else
-            {
-                if (!guardAI.MouvementAudioSource.isPlaying)
-                {
-                    guardAI.MouvementAudioSource.clip = guardAI.RunningClip;
-                    guardAI.MouvementAudioSource.Play();
-                }
-                anim.SetBool("PlayerSeen", true);
-                anim.SetBool("Walking", false);
-                timer = 0;
-                guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
+                guardAI.MouvementAudioSource.clip = guardAI.RunningClip;
+                guardAI.MouvementAudioSource.Play();
             }
+            anim.SetBool("PlayerSeen", true);
+            anim.SetBool("Walking", false);
+            timer = 0;
+            guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
             return this;
         }
         else

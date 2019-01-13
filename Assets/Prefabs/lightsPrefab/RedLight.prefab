@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4953408874200712}
-  - component: {fileID: 114918243261222530}
+  - component: {fileID: 114783532025259584}
   m_Layer: 0
   m_Name: RedLight
   m_TagString: Untagged
@@ -379,8 +379,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039771392621592}
-  m_LocalRotation: {x: 0.50000006, y: 0.5, z: 0.50000006, w: 0.5}
-  m_LocalPosition: {x: 19.105, y: 3.951, z: -23.586}
+  m_LocalRotation: {x: 0.7071068, y: 0.70710677, z: -0, w: 0}
+  m_LocalPosition: {x: -3.2260022, y: -0.46599984, z: -17.865002}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4369613189623818}
@@ -531,7 +531,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114918243261222530
+--- !u!114 &114783532025259584
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -539,6 +539,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039771392621592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70e59bfb5056be458ab14e9d632f02c, type: 3}
+  m_Script: {fileID: 11500000, guid: 95fdd4eb3f81d1844afc77c65daa18e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
