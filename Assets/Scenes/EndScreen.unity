@@ -460,7 +460,7 @@ MonoBehaviour:
   timeText: {fileID: 1095852253}
   quantityText: {fileID: 521765712}
   valueText: {fileID: 1422195045}
-  pressToReturn: {fileID: 0}
+  pressToReturn: {fileID: 109489297}
 --- !u!1 &521765712
 GameObject:
   m_ObjectHideFlags: 0

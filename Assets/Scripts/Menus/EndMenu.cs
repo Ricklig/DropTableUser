@@ -49,16 +49,16 @@ public class EndMenu : MonoBehaviour
     private void UpdateGlow()
     {
         if (upstream)
-            outlineValue += 0.01f;
+            outlineValue += 0.003f;
         else
-            outlineValue -= 0.01f;
+            outlineValue -= 0.003f;
 
-        if (outlineValue == 0)
+        if (outlineValue <= 0.00f)
             upstream = true;
-        else if (outlineValue == 1)
+        else if (outlineValue >= 0.30f)
             upstream = false;
-
-        pressToReturn.GetComponent<TextMeshPro>().outlineWidth = outlineValue;
+        
+        pressToReturn.GetComponent<TextMeshProUGUI>().outlineWidth = outlineValue;
     }
 
     private string ConvertTime(double time)
