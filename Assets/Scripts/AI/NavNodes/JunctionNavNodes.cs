@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class JunctionNavNodes : INavNode {
+    int currentIndex = 0;
+    private void Start()
+    {
+        foreach (var node in possibleNextNodes)
+        {
+            if (node != null)
+            {
+                nonNullNodes.Add(node);
+            }
+        }
+
+    }
     public List<INavNode> possibleNextNodes;
+    private List<INavNode> nonNullNodes = new List<INavNode>();
     public override INavNode NextNavNode(INavNode previousNode)
     {
-        List<INavNode> nextNodeChoices = new List<INavNode>();
-        foreach (INavNode navNode in possibleNextNodes)
+        bool isNodeSelected = false;
+        while(!isNodeSelected)
         {
-            if (navNode && navNode != previousNode)
-                nextNodeChoices.Add(navNode);
+            currentIndex = currentIndex % nonNullNodes.Count;
+            INavNode selectedNode = nonNullNodes[currentIndex++];
+            if (selectedNode != previousNode && nonNullNodes.Count != 1)
+            {
+                isNodeSelected = true;
+                return selectedNode;
+            }
         }
-        nextNodeChoices.Remove(previousNode);
-        int index = Random.Range(0, nextNodeChoices.Count);
-        return nextNodeChoices[index];
+        return null;
     }
 }
