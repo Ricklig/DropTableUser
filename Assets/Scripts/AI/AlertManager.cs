@@ -10,36 +10,25 @@ public class AlertManager{
     public AlertStatus currentAlertStatus = AlertStatus.level1;
     public delegate void AlertStatusChanged(AlertStatus alertStatus);
     public event AlertStatusChanged alertStatusChanged;
-    private GameManager mc;
-
-    void OnAwake()
-    {
-       mc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-    }
-
-    void Start()
-    {
-    }
-
     public void UpdateAlertStatus(int seenStolenItem)
     {
         if (RedAlertCeil <= seenStolenItem && currentAlertStatus != AlertStatus.RedAlert)
         {
             alertStatusChanged(AlertStatus.RedAlert);
-            mc.levelUp();
             currentAlertStatus = AlertStatus.RedAlert;
+            GameManager.Instance.levelUp();
         }
         else if (AlertLevel3Ceil <= seenStolenItem && currentAlertStatus != AlertStatus.level3)
         {
             alertStatusChanged(AlertStatus.level3);
-            mc.levelUp();
             currentAlertStatus = AlertStatus.level3;
+            GameManager.Instance.levelUp();
         }
         else if (AlertLevel2Ceil <= seenStolenItem && currentAlertStatus != AlertStatus.level2)
         {
             currentAlertStatus = AlertStatus.level2;
             alertStatusChanged(AlertStatus.level2);
-            mc.levelUp();
+            GameManager.Instance.levelUp();
         }
     }
 }
