@@ -14,6 +14,9 @@ public class EndMenu : MonoBehaviour
     public GameObject valueText;
     public GameObject pressToReturn;
 
+    public AudioSource victoryMusic;
+    public AudioSource defeatMusic;
+
     int _IndexResolution;
     int _ScreenWidth, _ScreenHeight;
     int _BtnWidth, _BtnHeight;
@@ -35,6 +38,8 @@ public class EndMenu : MonoBehaviour
 
     private void PrintVictory()
     {
+        victoryMusic.Play();
+
         timeText.GetComponent<TextMeshProUGUI>().text = "FELICITATIONS!";
         timeText.GetComponent<TextMeshProUGUI>().text = "En " + ConvertTime(gameManager.timeElapsed);
         if (gameManager.NumberOfStolenArtefacts > 1)
@@ -46,6 +51,8 @@ public class EndMenu : MonoBehaviour
 
     private void PrintDefeat()
     {
+        defeatMusic.Play();
+
         timeText.GetComponent<TextMeshProUGUI>().text = "OH NON!";
         timeText.GetComponent<TextMeshProUGUI>().text = "Après " + ConvertTime(gameManager.timeElapsed) + " vous vous êtes\nfait attrapé!";
         if (gameManager.NumberOfStolenArtefacts > 1)
