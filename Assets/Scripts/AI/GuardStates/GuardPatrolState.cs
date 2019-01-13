@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GuardPatrolState : GuardSensState {
+    private Animator anim;
     public GuardPatrolState(GuardAI guardAI) : base(guardAI)
     {
+        anim = guardAI.gameObject.GetComponentInChildren<Animator>();
+        anim.SetBool("PlayerSeen", false);
+        anim.SetBool("PlayerLost", false);
+        anim.SetBool("MissingArt", false);
     }
 
     public override GuardState DoAction()
     {
+        anim.SetBool("Walking", true);
         guardAI.SetFlashLightPatrolMode();
         if (!guardAI.MouvementAudioSource.isPlaying || guardAI.MouvementAudioSource.clip != guardAI.CurrentWalkingClip)
         {

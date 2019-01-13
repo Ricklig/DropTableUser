@@ -9,7 +9,7 @@ public class GuardPlayerInSightState : GuardSensState {
 	private Animator anim;
     public GuardPlayerInSightState(GuardAI guardAI) : base(guardAI)
     {
-		anim = guardAI.gameObject.GetComponent<Animator>();
+		anim = guardAI.gameObject.GetComponentInChildren<Animator>();
 	    anim.SetBool("PlayerSeen", false);
 	    anim.SetBool("PlayerLost", false);
 	    anim.SetBool("MissingArt", false);
@@ -28,9 +28,9 @@ public class GuardPlayerInSightState : GuardSensState {
             {
                 if (guardAI.MouvementAudioSource.isPlaying)
                 {
-	                anim.SetBool("Walking", true);
+	                anim.SetBool("Walking", false);
 	                anim.SetBool("PlayerSeen", false);
-					anim.SetBool("PlayerLost", false);
+					anim.SetBool("PlayerLost", true);
 	                anim.SetBool("MissingArt", false);
 					guardAI.MouvementAudioSource.Stop();
                 }
@@ -44,8 +44,6 @@ public class GuardPlayerInSightState : GuardSensState {
                 //put exclamation mark
                 if (timer >= guardAI.SupriseDuration)
                 {
-	                anim.SetBool("PlayerSeen", true);
-					anim.SetBool("Walking", false);
 					isChasing = true;
                 }
                 timer += Time.deltaTime;
@@ -58,6 +56,8 @@ public class GuardPlayerInSightState : GuardSensState {
                     guardAI.MouvementAudioSource.clip = guardAI.RunningClip;
                     guardAI.MouvementAudioSource.Play();
                 }
+                anim.SetBool("PlayerSeen", true);
+                anim.SetBool("Walking", false);
                 timer = 0;
                 guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
             }

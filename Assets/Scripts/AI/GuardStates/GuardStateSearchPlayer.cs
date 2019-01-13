@@ -8,13 +8,18 @@ public class GuardStateSearchPlayer : GuardSensState
     SearchPlayerStates searchPlayerState = SearchPlayerStates.MovingToLastKnownLocation;
     Quaternion lerpFinalRotation;
     Quaternion lerpInitialRotation;
+    private Animator anim;
     bool isSwipping = false;
     float timeToSwipe = 0;
     float swipeTime = 0;
     public GuardStateSearchPlayer(GuardAI guardAI) : base(guardAI)
     {
+        anim = guardAI.gameObject.GetComponentInChildren<Animator>();
+        anim.SetBool("PlayerSeen", false);
+        anim.SetBool("PlayerLost", false);
+        anim.SetBool("MissingArt", false);
+        anim.SetBool("Walking", true);
     }
-    
 
     public override GuardState DoAction()
     {
@@ -25,6 +30,9 @@ public class GuardStateSearchPlayer : GuardSensState
         {
             if (searchPlayerState == SearchPlayerStates.MovingToLastKnownLocation)
             {
+
+                anim.SetBool("PlayerSeen", true);
+                anim.SetBool("Walking", false);
                 guardAI.navMeshAgent.SetDestination(guardAI.lastSeenPlayerPosition);
                 if (guardAI.navMeshAgent.remainingDistance < 0.5f)
                 {
@@ -34,6 +42,8 @@ public class GuardStateSearchPlayer : GuardSensState
             }
             else if(searchPlayerState == SearchPlayerStates.RoomSwipe)
             {
+                anim.SetBool("PlayerSeen", false);
+                anim.SetBool("PlayerLost", true);
                 if (!isSwipping)
                 {
                     swipeTime = 0;
@@ -72,6 +82,9 @@ public class GuardStateSearchPlayer : GuardSensState
             }
             else if (searchPlayerState == SearchPlayerStates.MovingToRandomNearbyNode)
             {
+                anim.SetBool("Walking", true);
+                anim.SetBool("PlayerSeen", false);
+                anim.SetBool("PlayerLost", false);
                 var colliders = Physics.OverlapSphere(guardAI.transform.position, 20);
                 foreach (var collider in colliders)
                 {
