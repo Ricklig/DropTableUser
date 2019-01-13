@@ -37,10 +37,10 @@ public class PlayerAction : MonoBehaviour {
 
     private void Action()
     {
-        anim.SetBool("Action", true);
+        anim.SetTrigger("Action");
         Vector3 startPos = transform.position; // umm, start position !
         Vector3 targetPos =  transform.forward; // variable for calculated end position
-        anim.SetBool("Action", false);
+        
 
         RaycastHit tg;
         if(Physics.SphereCast(startPos, .5f, targetPos, out tg, 1.5f))
