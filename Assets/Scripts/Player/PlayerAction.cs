@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour {
     
     private GameManager gm;
+    private Animator anim;
 
     public AudioSource pickup;
+
 
     // Use this for initialization
     void Start () {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -34,9 +37,10 @@ public class PlayerAction : MonoBehaviour {
 
     private void Action()
     {
-        
+        anim.SetBool("Action", true);
         Vector3 startPos = transform.position; // umm, start position !
         Vector3 targetPos =  transform.forward; // variable for calculated end position
+        anim.SetBool("Action", false);
 
         RaycastHit tg;
         if(Physics.SphereCast(startPos, .5f, targetPos, out tg, 1.5f))
