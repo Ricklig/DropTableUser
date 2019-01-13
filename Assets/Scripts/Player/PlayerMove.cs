@@ -150,7 +150,7 @@ public class PlayerMove : MonoBehaviour {
                     }
                     else if (Mathf.Abs(moveHorizontal) <= Mathf.Abs(moveVertical))
                     {
-                        Debug.Log("HELP");
+                        //Debug.Log("HELP");
                         if (moveVertical > 0)
                         {
                             anim.SetInteger("New Int", 2);
