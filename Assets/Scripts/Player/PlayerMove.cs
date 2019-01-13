@@ -8,6 +8,8 @@ public class PlayerMove : MonoBehaviour {
     private Rigidbody playerRB;
     private bool sprint;
     private GameManager gm;
+    private Animator anim;
+
 
     public int speedFactor = 1;
     public MusicController mc;
@@ -22,6 +24,7 @@ public class PlayerMove : MonoBehaviour {
         playerRB = GetComponent<Rigidbody>();
         sprint = false;
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -31,12 +34,15 @@ public class PlayerMove : MonoBehaviour {
         if (Input.GetButtonDown("Sprint"))
         {
             sprint = true;
+            anim.SetBool("Running", true);
         }
         if (Input.GetButtonUp("Sprint"))
         {
             sprint = false;
+            anim.SetBool("Running", false);
+
         }
-	}
+    }
 
     //move script
     private void Move()
@@ -56,6 +62,8 @@ public class PlayerMove : MonoBehaviour {
 
         if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
         {
+            anim.SetBool("Forward", true);
+
             if (mc.getCurrentLevel() == 2)
             {
                 level1.Play();
@@ -73,7 +81,8 @@ public class PlayerMove : MonoBehaviour {
         }
         else if (!Input.GetKey("a") && !Input.GetKey("d") && !Input.GetKey("w") && !Input.GetKey("s"))
         {
-            
+            anim.SetBool("Forward", false);
+
             level1.Stop();
             level2.Stop();
             level3.Stop();
