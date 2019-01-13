@@ -17,7 +17,7 @@ public class GuardSuprisedState : GuardSensState {
 
     public override GuardState DoAction(GuardState previousState)
     {
-        guardAI.SetFlashLightSearchingMode();
+        guardAI.SetFlashLightAlertMode();
         base.DoAction(previousState);
         if (guardAI.MouvementAudioSource.isPlaying)
         {
