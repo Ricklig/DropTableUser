@@ -6176,7 +6176,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.2276913
+      value: -1.231115
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6184,15 +6184,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 16.817959
+      value: 16.81578
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.84351856
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalRotation.z
@@ -6200,7 +6200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.5371002
       objectReference: {fileID: 0}
     - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_RootOrder
@@ -6209,6 +6209,10 @@ Prefab:
     - target: {fileID: 1397048970024396, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
       propertyPath: m_Name
       value: Boat_Painting_Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169976959722810, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 115.02701
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 161094bf4df11bc4b863736fa318a7a7, type: 2}
@@ -12607,23 +12611,23 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.293919
+      value: -17.194805
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 18.54
+      value: 19.6
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 44.894405
+      value: 46.083218
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.91536987
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalRotation.z
@@ -12631,11 +12635,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.40261406
       objectReference: {fileID: 0}
     - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655236583322666, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 132.51701
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e22ecfc97fb5b5a429713c61394ad10f, type: 2}
