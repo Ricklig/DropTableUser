@@ -121,6 +121,7 @@ public class GameManager : Singleton<GameManager> {
         {
             value = valueStolen.GetComponent<TextMeshProUGUI>();
             qty = amountStolen.GetComponent<TextMeshProUGUI>();
+			
         }
         catch (MissingReferenceException) { }
 
