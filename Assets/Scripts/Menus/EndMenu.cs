@@ -73,13 +73,13 @@ public class EndMenu : MonoBehaviour
     private void UpdateGlow()
     {
         if (upstream)
-            outlineValue += 0.003f;
+            outlineValue += 0.004f;
         else
-            outlineValue -= 0.003f;
+            outlineValue -= 0.004f;
 
         if (outlineValue <= 0.00f)
             upstream = true;
-        else if (outlineValue >= 0.30f)
+        else if (outlineValue >= 0.32f)
             upstream = false;
         
         pressToReturn.GetComponent<TextMeshProUGUI>().outlineWidth = outlineValue;
