@@ -97,6 +97,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &135571935503388240
 SphereCollider:
   m_ObjectHideFlags: 1
