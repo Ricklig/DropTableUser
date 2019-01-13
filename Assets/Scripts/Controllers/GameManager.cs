@@ -77,6 +77,11 @@ public class GameManager : Singleton<GameManager> {
 
     public void escape()
     {
+        SceneManager.LoadScene("EndScreen");
+    }
+
+    public void getCaught()
+    {
         SceneManager.LoadScene("Menu");
     }
 
