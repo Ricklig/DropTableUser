@@ -11,7 +11,6 @@ public class GuardAI : MonoBehaviour {
     public float SupriseDuration;
     public Vector3 lastSeenPlayerPosition;
     public Vector3 lastHeardPlayerPosition;
-
     private GuardState guardState;
     private Task behaviourTree;
     public INavNode currentNavNode
@@ -34,6 +33,7 @@ public class GuardAI : MonoBehaviour {
         get;
         set;
     }
+    public FieldOfView GraphicalConeOfView;
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();

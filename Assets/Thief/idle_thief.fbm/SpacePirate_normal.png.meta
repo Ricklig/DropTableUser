@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Thief/idle_thief.fbm/SpacePirate_normal.png.meta
 guid: 8b6b65c34198ca84ca9ff09f93733dea
 timeCreated: 1547337487
+=======
+guid: 7f55a51da5ec21841ab9913ddd9c89f0
+timeCreated: 1547338256
+>>>>>>> 55ddf3486dd30014cec2dde81c6bfc750410eeec:Assets/Thief/thief_walk.fbm/SpacePirate_normal.png.meta
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -8,7 +13,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -49,7 +54,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 1
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
