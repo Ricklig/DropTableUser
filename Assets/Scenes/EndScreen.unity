@@ -290,7 +290,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Appuyer sur n''importe quelle touche
 
-    pour retourner au menu principal'
+    pour quiiter le jeu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 83a1b0fe6c3dbac44b66f09c82e1d509, type: 2}
@@ -359,10 +359,10 @@ MonoBehaviour:
   m_margin: {x: -400.68353, y: -184.11523, z: -474.4917, w: 170.98627}
   m_textInfo:
     textComponent: {fileID: 109489299}
-    characterCount: 68
+    characterCount: 55
     spriteCount: 0
-    spaceCount: 9
-    wordCount: 10
+    spaceCount: 8
+    wordCount: 9
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -901,7 +901,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: f9e0de70dc3b8eb409884ab888d01f54, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.707666
+      value: -14.48
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: f9e0de70dc3b8eb409884ab888d01f54, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1492,11 +1492,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4274191787818038, guid: bca844f680ba20c468f1cdbfe19e7dcb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -21.3
+      value: -15.49
       objectReference: {fileID: 0}
     - target: {fileID: 4274191787818038, guid: bca844f680ba20c468f1cdbfe19e7dcb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -8.7
+      value: -5.88
       objectReference: {fileID: 0}
     - target: {fileID: 4274191787818038, guid: bca844f680ba20c468f1cdbfe19e7dcb, type: 2}
       propertyPath: m_LocalRotation.x

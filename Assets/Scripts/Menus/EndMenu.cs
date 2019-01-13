@@ -68,8 +68,8 @@ public class EndMenu : MonoBehaviour
     {
         CalculateButtonMetrics();
         if (Input.anyKey)
-            SceneManager.LoadScene("Menu");
-        UpdateGlow();
+			Application.Quit();
+		UpdateGlow();
     }
 
     private void UpdateGlow()
