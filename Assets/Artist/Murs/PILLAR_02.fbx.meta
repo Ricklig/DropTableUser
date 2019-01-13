@@ -1,77 +1,15 @@
 fileFormatVersion: 2
-guid: d3bd2012ff724a8448a5ae7f4c14302c
-timeCreated: 1547351096
+guid: c72f19ad3a7fa634a8c4b675a082e13b
+timeCreated: 1547349674
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: polySurface12
-    100004: polySurface13
-    100006: polySurface14
-    100008: polySurface15
-    100010: polySurface16
-    100012: polySurface17
-    100014: polySurface17 1
-    100016: polySurface18
-    100018: polySurface19
-    100020: polySurface20
-    100022: polySurface21
-    100024: polySurface22
-    100026: polySurface23
-    100028: polySurface24
-    100030: polySurface25
-    100032: polySurface26
-    100034: transform27
-    100036: transform28
-    100038: transform29
-    100040: transform30
-    100042: transform31
-    100044: transform32
-    100046: transform33
-    100048: transform34
-    100050: transform35
-    100052: transform36
-    100054: transform37
-    100056: transform38
-    100058: transform39
-    100060: transform40
-    100062: transform41
     400000: //RootNode
-    400002: polySurface12
-    400004: polySurface13
-    400006: polySurface14
-    400008: polySurface15
-    400010: polySurface16
-    400012: polySurface17
-    400014: polySurface17 1
-    400016: polySurface18
-    400018: polySurface19
-    400020: polySurface20
-    400022: polySurface21
-    400024: polySurface22
-    400026: polySurface23
-    400028: polySurface24
-    400030: polySurface25
-    400032: polySurface26
-    400034: transform27
-    400036: transform28
-    400038: transform29
-    400040: transform30
-    400042: transform31
-    400044: transform32
-    400046: transform33
-    400048: transform34
-    400050: transform35
-    400052: transform36
-    400054: transform37
-    400056: transform38
-    400058: transform39
-    400060: transform40
-    400062: transform41
-    2300000: polySurface17
-    3300000: polySurface17
-    4300000: polySurface17
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube2
     9500000: //RootNode
   materials:
     importMaterials: 1
