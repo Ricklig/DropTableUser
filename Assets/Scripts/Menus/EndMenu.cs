@@ -55,7 +55,7 @@ public class EndMenu : MonoBehaviour
     {
         defeatMusic.Play();
 
-        timeText.GetComponent<TextMeshProUGUI>().text = "OH NON!";
+        title.GetComponent<TextMeshProUGUI>().text = "OH NON!";
         timeText.GetComponent<TextMeshProUGUI>().text = "Après " + ConvertTime(gameManager.timeElapsed) + " vous vous êtes\nfait attrapé!";
         if (gameManager.NumberOfStolenArtefacts > 1)
             quantityText.GetComponent<TextMeshProUGUI>().text = "Vous aviez avec vous " + gameManager.NumberOfStolenArtefacts + " objets";
