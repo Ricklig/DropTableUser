@@ -39,7 +39,7 @@ public class GuardPatrolState : GuardSensState {
             return;
         }
         guardAI.navMeshAgent.SetDestination(guardAI.currentNavNode.transform.position);
-        if (guardAI.navMeshAgent.remainingDistance <= 0.5)
+        if (guardAI.navMeshAgent.remainingDistance <= 0.1)
         {
             INavNode buff = guardAI.currentNavNode;
             guardAI.currentNavNode = guardAI.currentNavNode.NextNavNode(guardAI.previousNavNode);
