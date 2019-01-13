@@ -6,20 +6,20 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CatMaterial
-  m_Shader: {fileID: 4800000, guid: 2029eb819db49e045ab308b42e104f8a, type: 3}
+  m_Name: VaseMaterialShiny
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 80f3240315dba934c855b33b585fe748, type: 3}
+        m_Texture: {fileID: 2800000, guid: c1d0722ae18895c42a453c77fc9aaa34, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -39,11 +39,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9218c56d515373d4e8fb9e5b6d9da31e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5f37c82d5dd16c9499598aec7b3160d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: af7eb3187442c9040bcb211c94342b75, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0b35c3832e7a06d449a6a5f23806cd88, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -60,9 +60,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.492
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.744
+    - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Outline: 0.086
@@ -73,6 +73,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 0.9724139, b: 0, a: 1}
+    - _OutlineColor: {r: 0.9294118, g: 0.9058824, b: 0.07058824, a: 1}
