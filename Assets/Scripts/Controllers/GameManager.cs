@@ -119,12 +119,13 @@ public class GameManager : Singleton<GameManager> {
         TextMeshProUGUI qty = null;
         try
         {
-            value = timer.GetComponent<TextMeshProUGUI>();
-            qty = timer.GetComponent<TextMeshProUGUI>();
+            value = valueStolen.GetComponent<TextMeshProUGUI>();
+            qty = amountStolen.GetComponent<TextMeshProUGUI>();
+			
         }
         catch (MissingReferenceException) { }
 
-        if (qty && value)
+        if (qty != null && value != null)
         {
             stolen += val;
             value.text = "€" + stolen.ToString();

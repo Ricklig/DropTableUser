@@ -106,9 +106,11 @@ GameObject:
   - component: {fileID: 4598487809049236}
   - component: {fileID: 95818673593848926}
   - component: {fileID: 23481025310664488}
+  - component: {fileID: 65746120219118216}
+  - component: {fileID: 114030311078548656}
   m_Layer: 0
   m_Name: Mask
-  m_TagString: Untagged
+  m_TagString: Art
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,9 +147,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856825813075044}
-  m_LocalRotation: {x: 0.42261827, y: 0.9063078, z: 2.5190286e-16, w: -6.850955e-16}
-  m_LocalPosition: {x: -14.789037, y: 15.772928, z: 43.14343}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.12922737, y: 0.12263124, z: 0.30619165, w: 0.93515164}
+  m_LocalPosition: {x: 33.246, y: 0.90999997, z: 2.8900003}
+  m_LocalScale: {x: 0.81248343, y: 0.81248343, z: 0.81248343}
   m_Children:
   - {fileID: 4510638126907790}
   - {fileID: 4989969862794498}
@@ -156,7 +158,7 @@ Transform:
   - {fileID: 4999367944437026}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.469002, y: 9.113001, z: 34.775}
 --- !u!4 &4683459142163640
 Transform:
   m_ObjectHideFlags: 1
@@ -423,6 +425,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783867801845694}
   m_Mesh: {fileID: 4300008, guid: c2e8350ef1f09174381dd393df4f5602, type: 3}
+--- !u!65 &65746120219118216
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856825813075044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3855913, y: 2.0040357, z: 1.7522366}
+  m_Center: {x: -0.69279426, y: -0.5020183, z: -0.37611857}
 --- !u!95 &95818673593848926
 Animator:
   serializedVersion: 3
@@ -440,3 +454,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114030311078548656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856825813075044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530c07bedf77f4b468fe3b254050ab76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 500000
