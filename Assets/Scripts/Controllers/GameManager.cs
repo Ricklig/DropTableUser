@@ -49,22 +49,22 @@ public class GameManager : Singleton<GameManager> {
 
         if (tmp != null)
         { 
-            if (alertStatus.Equals(AlertLevel.None))
+            if (alertStatus.Equals(AlertStatus.level1))
             {
                 tmp.text = "Bas";
                 tmp.color = Color.white;
             }
-            else if (alertStatus.Equals(AlertLevel.MinorAlert))
+            else if (alertStatus.Equals(AlertStatus.level2))
             {
                 tmp.text = "Moyen";
                 tmp.color = Color.green;
             }
-            else if (alertStatus.Equals(AlertLevel.SevereAlert))
+            else if (alertStatus.Equals(AlertStatus.level3))
             {
                 tmp.text = "Haut";
                 tmp.color = Color.yellow;
             }
-            else if (alertStatus.Equals(AlertLevel.SevereAlert))
+            else if (alertStatus.Equals(AlertStatus.RedAlert))
             {
                 tmp.text = "MAXIMAL!";
                 tmp.color = Color.red;

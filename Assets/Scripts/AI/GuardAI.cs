@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-enum AlertLevel { None, MinorAlert, Alert, SevereAlert }
 public class GuardAI : MonoBehaviour {
     public float TimeSinceLastStun = 0;
     public SwapSightConeColor swapSightConeColor;
