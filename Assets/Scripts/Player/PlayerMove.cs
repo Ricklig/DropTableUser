@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour {
         if (sprint)
         {
             moveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 5.0f * speedFactor * (1-(2*gm.getQuantity()/100)) ;
-            moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 5.0f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
+            moveVertical = Input.GetAxis("Vertical") * Time.deltaTime * 5.000001f * speedFactor * (1 - (2 * gm.getQuantity() / 100));
         }
         else
         {
@@ -62,7 +62,6 @@ public class PlayerMove : MonoBehaviour {
 
         if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
         {
-            anim.SetBool("Forward", true);
 
             if (mc.getCurrentLevel() == 2)
             {
@@ -81,12 +80,13 @@ public class PlayerMove : MonoBehaviour {
         }
         else if (!Input.GetKey("a") && !Input.GetKey("d") && !Input.GetKey("w") && !Input.GetKey("s"))
         {
-            anim.SetBool("Forward", false);
 
             level1.Stop();
             level2.Stop();
             level3.Stop();
         }
+
+
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
@@ -103,6 +103,121 @@ public class PlayerMove : MonoBehaviour {
 
             //Get the angle between the points
             float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen) - 90;
+
+            if (moveHorizontal != 0 || moveVertical != 0)
+            {
+                if (Quaternion.Euler(new Vector3(0f, angle, 0f)).y > -.3 && Quaternion.Euler(new Vector3(0f, angle, 0f)).y < .3)
+                {
+                    if (Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical))
+                    {
+                        if (moveHorizontal < 0)
+                        {
+                            anim.SetInteger("New Int", 4);
+                        }
+                        else if (moveHorizontal > 0)
+                        {
+                            anim.SetInteger("New Int", 2);
+                        }
+                    }
+                    else if (Mathf.Abs(moveHorizontal) < Mathf.Abs(moveVertical))
+                    {
+                        if (moveVertical > 0)
+                        {
+                            anim.SetInteger("New Int", 1);
+                        }
+
+                        else
+                        {
+                            anim.SetInteger("New Int", 3);
+                        }
+
+                    }
+                }
+                else if (Quaternion.Euler(new Vector3(0f, angle, 0f)).y > -.7 && Quaternion.Euler(new Vector3(0f, angle, 0f)).y <= -.3)
+                {
+                    if (Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical))
+                    {
+                        if (moveHorizontal < 0)
+                        {
+                            anim.SetInteger("New Int", 1);
+                        }
+                        else if (moveHorizontal > 0)
+                        {
+                            anim.SetInteger("New Int", 3);
+                        }
+                        else if (Mathf.Abs(moveHorizontal) < Mathf.Abs(moveVertical))
+                        {
+                            if (moveVertical > 0)
+                            {
+                                anim.SetInteger("New Int", 2);
+                            }
+
+                            else
+                            {
+                                anim.SetInteger("New Int", 4);
+                            }
+                        }
+                    }
+                    else if (Quaternion.Euler(new Vector3(0f, angle, 0f)).y < .7 && Quaternion.Euler(new Vector3(0f, angle, 0f)).y >= .3)
+                    {
+                        if (Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical))
+                        {
+                            if (moveHorizontal < 0)
+                            {
+                                anim.SetInteger("New Int", 1);
+                            }
+                            else if (moveHorizontal > 0)
+                            {
+                                anim.SetInteger("New Int", 3);
+                            }
+                        }
+                        else if (Mathf.Abs(moveHorizontal) < Mathf.Abs(moveVertical))
+                        {
+                            if (moveVertical > 0)
+                            {
+                                anim.SetInteger("New Int", 4);
+                            }
+
+                            else
+                            {
+                                anim.SetInteger("New Int", 2);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical))
+                        {
+                            if (moveHorizontal < 0)
+                            {
+                                anim.SetInteger("New Int", 4);
+                            }
+                            else if (moveHorizontal > 0)
+                            {
+                                anim.SetInteger("New Int", 2);
+                            }
+                        }
+                        else if (Mathf.Abs(moveHorizontal) < Mathf.Abs(moveVertical))
+                        {
+                            if (moveVertical > 0)
+                            {
+                                anim.SetInteger("New Int", 3);
+                            }
+
+                            else
+                            {
+                                anim.SetInteger("New Int", 1);
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                anim.SetInteger("New Int", 0);
+            }
+            
+           
 
             //Ta Daaa
             playerRB.transform.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
