@@ -11,6 +11,7 @@ TagManager:
   - SeenStolen
   - NavNode
   - GuardAnim
+  - rotateLight
   layers:
   - Default
   - TransparentFX
