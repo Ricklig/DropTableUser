@@ -11,12 +11,15 @@ public class EndMenu : MonoBehaviour
     // Should put the proper type but I'm brain-dead
     public GameObject timeText;
     public GameObject quantityText;
-    public GameObject valueText;    
+    public GameObject valueText;
+    public GameObject pressToReturn;
 
     int _IndexResolution;
     int _ScreenWidth, _ScreenHeight;
     int _BtnWidth, _BtnHeight;
     float _PosX, _PosY;
+    float outlineValue;
+    bool upstream;
 
     // Everything that happens every time the menu scene is created
     private void Start()
@@ -40,6 +43,22 @@ public class EndMenu : MonoBehaviour
         CalculateButtonMetrics();
         if (Input.anyKey)
             SceneManager.LoadScene("Menu");
+        UpdateGlow();
+    }
+
+    private void UpdateGlow()
+    {
+        if (upstream)
+            outlineValue += 0.01f;
+        else
+            outlineValue -= 0.01f;
+
+        if (outlineValue == 0)
+            upstream = true;
+        else if (outlineValue == 1)
+            upstream = false;
+
+        pressToReturn.GetComponent<TextMeshPro>().outlineWidth = outlineValue;
     }
 
     private string ConvertTime(double time)
