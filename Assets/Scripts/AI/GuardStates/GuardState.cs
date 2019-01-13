@@ -9,7 +9,7 @@ public abstract class GuardState {
     {
         this.guardAI = guardAI;
     }
-    public virtual GuardState DoAction()
+    public virtual GuardState DoAction(GuardState previousState)
     {
         return new GuardPatrolState(guardAI);
     }

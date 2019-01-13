@@ -12,7 +12,7 @@ public class GuardPatrolState : GuardSensState {
         anim.SetBool("MissingArt", false);
     }
 
-    public override GuardState DoAction()
+    public override GuardState DoAction(GuardState previousState)
     {
         anim.SetBool("Walking", true);
         guardAI.SetFlashLightPatrolMode();
@@ -23,7 +23,7 @@ public class GuardPatrolState : GuardSensState {
         }
         //add sense here (vision detection and such)
         //we start patroling
-        GuardState state = base.DoAction();
+        GuardState state = base.DoAction(previousState);
         if (state.GetType() != this.GetType())
         {
             return state;

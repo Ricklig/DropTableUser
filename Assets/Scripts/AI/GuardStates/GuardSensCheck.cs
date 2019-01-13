@@ -7,13 +7,18 @@ public class GuardSensState : GuardState {
     {
     }
 
-    public override GuardState DoAction()
+    public override GuardState DoAction(GuardState previousState)
     {
         Debug.Log("SensCheck");
         /*check sens here*/
         if (CheckVision())
         {
-            return new GuardPlayerInSightState(guardAI);
+            if (previousState.GetType() == typeof(GuardPlayerInSightState) || previousState.GetType() == typeof(GuardStateSearchPlayer))
+                return new GuardPlayerInSightState(guardAI);
+            else
+            {
+                return new GuardSuprisedState(guardAI);
+            }
         }
         return new GuardPatrolState(guardAI);
 
