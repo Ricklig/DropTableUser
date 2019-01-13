@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 enum AlertLevel { None, MinorAlert, Alert, SevereAlert }
 public class GuardAI : MonoBehaviour {
+    public SwapSightConeColor swapSightConeColor;
     public int VisionAngle;
     public int VisionRange;
     public INavNode InitialNavNode;
@@ -65,5 +66,17 @@ public class GuardAI : MonoBehaviour {
         {
             GameManager.Instance.KillPlayer();
         }
+    }
+    public void SetFlashLightAlertMode()
+    {
+        swapSightConeColor.SetAlarmMaterial();
+    }
+    public void SetFlashLightPatrolMode()
+    {
+        swapSightConeColor.SetPatrolMaterial();
+    }
+    public void SetFlashLightSearchingMode()
+    {
+        swapSightConeColor.SetSearchingMaterial();
     }
 }
