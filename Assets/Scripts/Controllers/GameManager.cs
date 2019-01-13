@@ -114,6 +114,7 @@ public class GameManager : Singleton<GameManager> {
 
     public void addValue(double val)
     {
+
         TextMeshProUGUI value = null;
         TextMeshProUGUI qty = null;
         try
@@ -125,7 +126,6 @@ public class GameManager : Singleton<GameManager> {
 
         if (qty && value)
         {
-            mc.levelUp();
             stolen += val;
             value.text = "€" + stolen.ToString();
             NumberOfStolenArtefacts++;
@@ -159,5 +159,9 @@ public class GameManager : Singleton<GameManager> {
         isVictory = false;
         Debug.Log("Omae Wa Mou Shindeiru");
         getCaught();
+    }
+    public void levelUp()
+    {
+        mc.levelUp();
     }
 }
