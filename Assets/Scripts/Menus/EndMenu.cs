@@ -8,7 +8,7 @@ public class EndMenu : MonoBehaviour
     public GUISkin _GuiSkin;
     private GameManager gameManager;
 
-    // Should put the proper type but I'm brain-dead
+    public GameObject title;
     public GameObject timeText;
     public GameObject quantityText;
     public GameObject valueText;
@@ -26,13 +26,33 @@ public class EndMenu : MonoBehaviour
     {
         // Retrieve the gameObject and read the results
         gameManager = FindObjectOfType<GameManager>();
-              
+
+        if (gameManager.isVictory)
+            PrintVictory();
+        else
+            PrintDefeat();            
+    }
+
+    private void PrintVictory()
+    {
+        timeText.GetComponent<TextMeshProUGUI>().text = "FELICITATIONS!";
         timeText.GetComponent<TextMeshProUGUI>().text = "En " + ConvertTime(gameManager.timeElapsed);
         if (gameManager.NumberOfStolenArtefacts > 1)
-            timeText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objets";
         else
-            timeText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
-        timeText.GetComponent<TextMeshProUGUI>().text = "Pour un total de €" + gameManager.stolen;     
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous avez ramassé " + gameManager.NumberOfStolenArtefacts + " objet";
+        valueText.GetComponent<TextMeshProUGUI>().text = "Pour un total de €" + gameManager.stolen;
+    }
+
+    private void PrintDefeat()
+    {
+        timeText.GetComponent<TextMeshProUGUI>().text = "OH NON!";
+        timeText.GetComponent<TextMeshProUGUI>().text = "Après " + ConvertTime(gameManager.timeElapsed) + " vous vous êtes\nfait attrapé!";
+        if (gameManager.NumberOfStolenArtefacts > 1)
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous aviez avec vous " + gameManager.NumberOfStolenArtefacts + " objets";
+        else
+            quantityText.GetComponent<TextMeshProUGUI>().text = "Vous aviez avec vous " + gameManager.NumberOfStolenArtefacts + " objet";
+        valueText.GetComponent<TextMeshProUGUI>().text = "Pour un total de €" + gameManager.stolen;
     }
 
     private void Update()

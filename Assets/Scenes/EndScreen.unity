@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _GuiSkin: {fileID: 11400000, guid: 0a6b63bbc7b7fa249914001f43e76a86, type: 2}
+  title: {fileID: 1811287398}
   timeText: {fileID: 1095852253}
   quantityText: {fileID: 521765712}
   valueText: {fileID: 1422195045}
