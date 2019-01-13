@@ -12,12 +12,14 @@ public class GuardPlayerInSightState : GuardSensState {
 
     public override GuardState DoAction()
     {
+        guardAI.SetFlashLightAlertMode();
         Debug.Log("GuardPlayerInSightState");
         GuardState state = base.DoAction();
         if (state.GetType() == typeof(GuardPlayerInSightState))
         {
             if (!isChasing)
             {
+                guardAI.navMeshAgent.SetDestination(guardAI.transform.position);
                 if (!suprisedClipPlayed)
                 {
                     guardAI.audioSource.PlayOneShot(guardAI.audioSource.clip);
@@ -41,7 +43,7 @@ public class GuardPlayerInSightState : GuardSensState {
         }
         else
         {
-            return state;
+            return new GuardStateSearchPlayer(guardAI);
         }
     }
 }

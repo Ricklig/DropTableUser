@@ -9,6 +9,7 @@ public class GuardPatrolState : GuardSensState {
 
     public override GuardState DoAction()
     {
+        guardAI.SetFlashLightPatrolMode();
         Debug.Log("GuardPatrolState");
         //add sense here (vision detection and such)
         //we start patroling
