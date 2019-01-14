@@ -88,6 +88,10 @@ public class GameManager : Singleton<GameManager> {
             timeElapsed += Time.deltaTime;
             tmp.text = ConvertTime(timeElapsed);
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AlertManager.TriggerRedAlert();
+        }
     }
 
     // To know wether we should increment the timer or not

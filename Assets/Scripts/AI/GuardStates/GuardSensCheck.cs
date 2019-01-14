@@ -26,18 +26,20 @@ public class GuardSensState : GuardState {
     
     private bool CheckVision()
     {
-        Vector3 spherePos = guardAI.transform.position + guardAI.transform.forward * 10;
-        foreach (var collider in Physics.OverlapSphere(spherePos, 10))
+        Vector3 spherePos = guardAI.transform.position + guardAI.transform.forward * 30;
+        foreach (var collider in Physics.OverlapSphere(spherePos, 30))
         {
             if (collider.gameObject.tag == "Player")
             {
+                Vector3 playerPos = new Vector3(collider.gameObject.transform.position.x, guardAI.transform.position.y, collider.gameObject.transform.position.z);
                 //test if the player is hidden behind a wall or something
-                Ray ray = new Ray(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized);
+                Ray ray = new Ray(guardAI.transform.position, (playerPos - guardAI.transform.position).normalized);
                 RaycastHit hitInfo;
                 Physics.Raycast(ray, out hitInfo, guardAI.VisionRange + 1);
+                Debug.DrawRay(guardAI.transform.position, (playerPos - guardAI.transform.position).normalized * (guardAI.VisionRange + 1), Color.red, 0.0f);
                 if (hitInfo.collider && hitInfo.collider.gameObject.gameObject.tag != "Player")
-                    return false;
-                Debug.DrawRay(guardAI.transform.position, (collider.gameObject.transform.position - guardAI.transform.position).normalized * (guardAI.VisionRange + 1), Color.red, 0.0f);
+
+                    return false;       
                 if (IsInConeOfSight(collider.gameObject.transform.position))
                 {
                     guardAI.lastSeenPlayerPosition = collider.gameObject.transform.position;
