@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using TMPro;
 using System;
-using UnityEngine.SceneManagement;
 
 public class EndMenu : MonoBehaviour
 {
+    const float END_DELAY = 2f;
+
     public GUISkin _GuiSkin;
     private GameManager gameManager;
 
@@ -22,6 +23,7 @@ public class EndMenu : MonoBehaviour
     int _BtnWidth, _BtnHeight;
     float _PosX, _PosY;
     float outlineValue;
+    float endTimer;
     bool upstream;
 
     // Everything that happens every time the menu scene is created
@@ -35,7 +37,8 @@ public class EndMenu : MonoBehaviour
         if (gameManager.isVictory)
             PrintVictory();
         else
-            PrintDefeat();            
+            PrintDefeat();
+        endTimer = 0f;
     }
 
     private void PrintVictory()
@@ -67,9 +70,10 @@ public class EndMenu : MonoBehaviour
     private void Update()
     {
         CalculateButtonMetrics();
-        if (Input.anyKey)
+        if (endTimer > END_DELAY && Input.anyKey)
 			Application.Quit();
 		UpdateGlow();
+        endTimer += Time.deltaTime;
     }
 
     private void UpdateGlow()
